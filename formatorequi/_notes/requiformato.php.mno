@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_REQUIFORMATO" value="name:FOLIO;datatype:int,name:FECHA DE CREACI�N;datatype:datetime,name:FECHA AUTORIZACI�N;datatype:datetime,name:FECHA ESTIMADA;datatype:datetime,name:AREA;datatype:string,name:SOLICITANTE;datatype:string,name:CUENTA;datatype:string,name:OBSERVACIONES;datatype:blob,name:OBSERVACIONES DIRECCI�N;datatype:blob,name:OBSERVACIONES RM;datatype:blob,name:PRIORIDAD;datatype:string" />
+	<infoitem key="UD_Recordset1" value="name:FOLIO;datatype:int,name:FC;datatype:string,name:FA;datatype:string,name:FE;datatype:string,name:AREA;datatype:string,name:SOLICITANTE;datatype:string,name:CUENTA;datatype:string,name:PPTO;datatype:real,name:APROX;datatype:real,name:OBSERVACIONES;datatype:blob,name:OBSERVACIONES DIRECCION;datatype:blob,name:OBSERVACIONES RM;datatype:blob,name:PRIORIDAD;datatype:string" />
+	<infoitem key="UD_DETALLE" value="name:folio;datatype:int,name:cantidad;datatype:int,name:preciounitario;datatype:real,name:descripcion;datatype:string,name:medicion;datatype:string,name:estatus;datatype:string,name:coment_compras;datatype:blob,name:foliorequi;datatype:int,name:ordenpago;datatype:string,name:fe_ultimaact;datatype:datetime" />
+</info>

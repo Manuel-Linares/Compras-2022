@@ -1,0 +1,300 @@
+﻿body {
+    margin: 0;
+}
+/*Pie de página*/
+
+.footer {
+    text-align: center;
+    margin-right: 0%;
+    font-size: 100%;
+    font-style: italic;
+    font-family: Arial
+}
+/*Texto de sesion activa*/
+
+.sesion {
+    text-align: right;
+    font-size: 80%;
+    font-family: Arial;
+    color: dimgray;
+    font-weight: bold;
+}
+/*Menu*/
+
+/*ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #FEDB00;
+}*/
+
+ul.sidenav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    /*background-color: #FEDB00;*/
+    background-color: #f2f2f2;
+    position: fixed;
+    height: 93%;
+    overflow: auto;
+}
+    /*li a {
+    display: block;
+    color: black;
+    text-align: left;
+    padding: 9% 10%;
+    text-decoration: none;
+    font-family:Arial;
+
+}*/
+
+    ul.sidenav li a {
+        display: block;
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-family: Arial;
+    }
+        /*li a:hover {
+    background-color: #671E75;
+    color:white;
+
+}*/
+
+        ul.sidenav li a:hover:not(.active) {
+            background-color: #671E75;
+            color: white;
+        }
+        /*.active {
+    background-color: #FFCD00;
+}*/
+
+        ul.sidenav li a.active {
+            background-color: #FFCD00;
+            color: black;
+        }
+
+.dropdown {
+    /*float: left;*/
+    overflow: auto;
+    font-family: Arial;
+}
+
+    .dropdown .dropbtn {
+        border: none;
+        outline: none;
+        padding: 8px 16px;
+        background-color: inherit;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 100%;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    font-family: Arial;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+.sidenav a:hover, .dropdown:hover .dropbtn {
+    background-color: #671E75;
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: #671E75;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div.content {
+    margin-left: 20%;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+@media screen and (max-width: 900px) {
+    ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+        ul.sidenav li a {
+            float: left;
+            padding: 15px;
+        }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul.sidenav li a {
+        text-align: center;
+        float: none;
+    }
+}
+
+#main {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #main td, #main th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #main tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #main tr:hover {
+        background-color: #ddd;
+    }
+
+    #main th {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        text-align: left;
+        background-color: #671E75;
+        color: white;
+        font-size: small;
+    }
+
+#interior td {
+}
+
+#detalle td {
+    font-style: italic;
+    color: dimgrey;
+    font-size: medium;
+    background-color: white;
+}
+
+#titulo td {
+    font-style: italic;
+    color: dimgrey;
+    font-size: small;
+    background-color: white;
+    /*font-weight:bold;*/
+    border-width: medium;
+}
+
+#main2 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #main2 td, #main2 th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #main2 tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #main2 tr:hover {
+        background-color: #ddd;
+    }
+
+    #main2 th {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        text-align: left;
+        background-color: #671E75;
+        color: white;
+        font-size: small;
+    }
+
+.requisiciones {
+    font-family: Arial;
+    font-style: italic;
+    color: dimgrey;
+    font-size: small;
+    background-color: white;
+    /*font-weight:bold;*/
+    border-width: medium;
+}
+
+.datos {
+    text-align: left;
+    padding-left: 10%;
+}
+
+.subtitulo {
+    font-style: italic;
+    color: dimgrey;
+    font-size: medium;
+}
+
+.gv tr th a:link {
+    color: White;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.gv tr th a:active {
+    color: #FFCD00;
+    font-style: normal;
+}
+
+.gv tr th a:hover {
+    text-decoration:underline;
+}
+
+/*tr.ascendingCssClass th a:link {
+    color: Green;
+    background-color: White;
+}
+
+tr.ascendingCssClass th a:hover {
+    color: Orange;
+    background-color: White;
+}
+
+tr.ascendingCssClass th a:visited {
+    color: Black;
+    background-color: White;
+}
+
+
+tr.descendingCssClass th a:link {
+    color: red;
+    background-color: Gray;
+}
+
+tr.descendingCssClass th a:hover {
+    color: Yellow;
+    background-color: Gray;
+}
+
+tr.descendingCssClass th a:visited {
+    color: Yellow;
+    background-color: Gray;
+}*/
+

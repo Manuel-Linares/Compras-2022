@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="maestra_DM.master.cs" Inherits="wsCompras_Hgo.DM.maestra_DM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../CSS/style.css" rel="stylesheet" />
+    <title>Sistema de Compras Hidalgo</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%int dt = DateTime.Now.Year;%>
+
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: left; width: 20%">
+                    <img alt="Compras" src="../Imagenes/Sistema_compras.png" style=" width: 100%" /></td>
+                <td class="sesion">Bienvenido &nbsp;<asp:Label ID="lblSesion" runat="server" Text=""><%=Session["nombre"]%></asp:Label>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Imagenes/person_110935.png" OnClick="ImageButton1_Click" Width="2%" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="sesion">
+                    <asp:Panel ID="pnl1" runat="server">
+                        <asp:LinkButton ID="lnkCancelar" runat="server" OnClick="lnkCancelar_Click">Cancelar</asp:LinkButton>&nbsp&nbsp
+                            <asp:LinkButton ID="lnkCerrar" runat="server" OnClick="lnkCerrar_Click">Cerrar Sesión</asp:LinkButton>
+                    </asp:Panel>
+                </td>
+            </tr>
+        </table>
+        <ul class="sidenav">
+            <hr />
+            <li><a href="aspInicioDM.aspx?msg=0">Inicio</a></li>
+            <hr />
+            <li>Requisición</li>
+            <li>&nbsp;</li>
+            <li><a href="aspNuevaRequiDM.aspx">Nueva Requisición</a></li>
+            <li><a href="aspEnComprasDM.aspx">En Compras</a></li>
+            <li><a href="aspRequiReembolsoDM.aspx">Reembolso / Servicio</a></li>
+            <li><a href="aspRequiRevDM.aspx">Para Revisión</a></li>
+            <li><a href="aspRequiNoAutDM.aspx">No Autorizadas</a></li>
+            <li><a href="aspRequiFinalizadaDM.aspx">Finalizadas</a></li>
+            <li><a href="aspTodasRequisDM.aspx">Todas</a></li>
+            <hr />
+            <li>Para Autorizar</li>
+            <li>&nbsp;</li>
+            <li><a href="aspRequiDM.aspx">Dirección Médica</a></li>
+        </ul>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <p class="footer">Fundación Teletón México A.C. @ <%=dt.ToString()%></p>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Ubiety.StyleCop.0.0.5\build\Ubiety.StyleCop.props" Condition="Exists('packages\Ubiety.StyleCop.0.0.5\build\Ubiety.StyleCop.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6E25354-F461-4B9F-98EE-89263E09AB42}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wsCompras_Hgo</RootNamespace>
+    <AssemblyName>wsCompras_Hgo</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <IISExpressSSLPort>44361</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ubiety.Logging.Core, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Ubiety.Logging.Core.1.0.1\lib\netstandard2.0\Ubiety.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubiety.StyleCop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Ubiety.StyleCop.0.0.5\lib\netstandard2.0\Ubiety.StyleCop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="compras.pfx" />
+    <Content Include="Compras\aspInicioCompras.aspx" />
+    <Content Include="Compras\aspNuevaRequi.aspx" />
+    <Content Include="Compras\aspEnCompras.aspx" />
+    <Content Include="Compras\aspRequiReembolso.aspx" />
+    <Content Include="Compras\aspRequiRev.aspx" />
+    <Content Include="Compras\aspRequiNoAut.aspx" />
+    <Content Include="Compras\aspRequiFinalizada.aspx" />
+    <Content Include="Compras\aspTodasRequis.aspx" />
+    <Content Include="Compras\aspComprasCom.aspx" />
+    <Content Include="Compras\aspActPartidaCom.aspx" />
+    <Content Include="Compras\aspPartidasPenCom.aspx" />
+    <Content Include="Compras\aspPartidasFinalCom.aspx" />
+    <Content Include="Compras\aspPartidasUrgentesCom.aspx" />
+    <Content Include="Compras\aspNuevaODCCom.aspx" />
+    <Content Include="Compras\aspODCRevisionCom.aspx" />
+    <Content Include="Compras\aspODCAutorizadasCom.aspx" />
+    <Content Include="Compras\aspODCExcentoIVACom.aspx" />
+    <Content Include="Compras\aspODCImpuestosCom.aspx" />
+    <Content Include="Compras\aspNuevoProveedorCom.aspx" />
+    <Content Include="Compras\aspEditarCompras.aspx" />
+    <Content Include="Compras\aspEditarPartida.aspx" />
+    <Content Include="Compras\aspEditarPartPendiente.aspx" />
+    <Content Include="CSS\acceso.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="aspNuevaRequi.aspx" />
+    <Content Include="aspInicio.aspx" />
+    <Content Include="aspIndex.aspx" />
+    <Content Include="aspTodasRequis.aspx" />
+    <Content Include="aspEnCompras.aspx" />
+    <Content Include="aspRequiReembolso.aspx" />
+    <Content Include="aspRequiRev.aspx" />
+    <Content Include="aspRequiNoAut.aspx" />
+    <Content Include="aspRequiFinalizada.aspx" />
+    <Content Include="aspODCompra.aspx" />
+    <Content Include="DG\aspInicioDG.aspx" />
+    <Content Include="DG\aspRequiDG.aspx" />
+    <Content Include="DG\aspNuevaRequiDG.aspx" />
+    <Content Include="DG\aspEnComprasDG.aspx" />
+    <Content Include="DG\aspRequiReembolsoDG.aspx" />
+    <Content Include="DG\aspRequiRevDG.aspx" />
+    <Content Include="DG\aspRequiNoAutDG.aspx" />
+    <Content Include="DG\aspRequiFinalizadaDG.aspx" />
+    <Content Include="DG\aspTodasRequisDG.aspx" />
+    <Content Include="DG\aspEditarRequiDG.aspx" />
+    <Content Include="DM\aspInicioDM.aspx" />
+    <Content Include="aspNuevoProveedor.aspx" />
+    <Content Include="aspPartidasPendientes.aspx" />
+    <Content Include="aspPartidasFinalizadas.aspx" />
+    <Content Include="aspActualizarPartida.aspx" />
+    <Content Include="DM\aspNuevaRequiDM.aspx" />
+    <Content Include="DM\aspEnComprasDM.aspx" />
+    <Content Include="DM\aspRequiReembolsoDM.aspx" />
+    <Content Include="DM\aspRequiRevDM.aspx" />
+    <Content Include="DM\aspRequiNoAutDM.aspx" />
+    <Content Include="DM\aspRequiFinalizadaDM.aspx" />
+    <Content Include="DM\aspTodasRequisDM.aspx" />
+    <Content Include="DM\aspEditarRequiDM.aspx" />
+    <Content Include="DM\aspRequiDM.aspx" />
+    <Content Include="aspABCUsuarios.aspx" />
+    <Content Include="aspEditarUsuario.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Imagenes\157-1576931_plus-sign-play-button-vector-png-transparent-png.png" />
+    <Content Include="Imagenes\calendario.png" />
+    <Content Include="Imagenes\caret-down.png" />
+    <Content Include="Imagenes\compras.png" />
+    <Content Include="Imagenes\person_110935.png" />
+    <Content Include="Imagenes\Sistema_compras.png" />
+    <Content Include="Imagenes\sort-arrows-couple-pointing-up-and-down.png" />
+    <Content Include="Imagenes\sort-up.png" />
+    <Content Include="Imagenes\Y2.png" />
+    <Content Include="RRMM\aspInicioRRMM.aspx" />
+    <Content Include="RRMM\aspNuevaRequiRRMM.aspx" />
+    <Content Include="RRMM\aspEnComprasRRMM.aspx" />
+    <Content Include="RRMM\aspRequiReembolsoRRMM.aspx" />
+    <Content Include="RRMM\aspRequiRevRRMM.aspx" />
+    <Content Include="RRMM\aspRequiNoAutRRMM.aspx" />
+    <Content Include="RRMM\aspRequiFinalizadaRRMM.aspx" />
+    <Content Include="RRMM\aspTodasRequisRRMM.aspx" />
+    <Content Include="RRMM\aspRequiRRMM.aspx" />
+    <Content Include="RRMM\aspODCRRMM.aspx" />
+    <Content Include="RRMM\aspComprasRRMM.aspx" />
+    <Content Include="RRMM\aspActPartidaRRMM.aspx" />
+    <Content Include="RRMM\aspPartidasPenRRMM.aspx" />
+    <Content Include="RRMM\aspPartidasFinalRRMM.aspx" />
+    <Content Include="RRMM\aspPartidasUrgentesRRMM.aspx" />
+    <Content Include="RRMM\aspNuevaODCRRMM.aspx" />
+    <Content Include="RRMM\aspODCRevision.aspx" />
+    <Content Include="RRMM\aspODCAutorizadas.aspx" />
+    <Content Include="RRMM\aspODCExcentoIVA.aspx" />
+    <Content Include="RRMM\aspODCImpuestos.aspx" />
+    <Content Include="RRMM\aspEditarRequiRRMM.aspx" />
+    <Content Include="RRMM\aspEditarODCRRMM.aspx" />
+    <Content Include="RRMM\aspNuevoProveedorRRMM.aspx" />
+    <Content Include="RRMM\aspEditarComprasRRMM.aspx" />
+    <Content Include="RRMM\aspEditarPartida.aspx" />
+    <Content Include="RRMM\master_RRMM.Master" />
+    <Content Include="Sistemas\aspInicioSistemas.aspx" />
+    <Content Include="Sistemas\aspNuevaRequiSis.aspx" />
+    <Content Include="Sistemas\aspEnComprasSis.aspx" />
+    <Content Include="Sistemas\aspRequiReembolso.aspx" />
+    <Content Include="Sistemas\aspRequiRev.aspx" />
+    <Content Include="Sistemas\aspRequiNoAut.aspx" />
+    <Content Include="Sistemas\aspRequiFinalizada.aspx" />
+    <Content Include="Sistemas\aspTodasRequis.aspx" />
+    <Content Include="Usuario\aspInicioUsu.aspx" />
+    <Content Include="Usuario\aspNuevaRequiUsu.aspx" />
+    <Content Include="Usuario\aspEnComprasUsu.aspx" />
+    <Content Include="Usuario\aspRequiReembolsoUsu.aspx" />
+    <Content Include="Usuario\aspRequiRevUsu.aspx" />
+    <Content Include="Usuario\aspRequiNoAutUsu.aspx" />
+    <Content Include="Usuario\aspRequiFinalizadaUsu.aspx" />
+    <Content Include="Usuario\aspTodasRequisUsu.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="acceso.Master.cs">
+      <DependentUpon>acceso.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="acceso.Master.designer.cs">
+      <DependentUpon>acceso.Master</DependentUpon>
+    </Compile>
+    <Compile Include="aspNuevaRequi.aspx.cs">
+      <DependentUpon>aspNuevaRequi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspNuevaRequi.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClsPrincipal.cs" />
+    <Compile Include="aspInicio.aspx.cs">
+      <DependentUpon>aspInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspInicio.aspx.designer.cs">
+      <DependentUpon>aspInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspIndex.aspx.cs">
+      <DependentUpon>aspIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspIndex.aspx.designer.cs">
+      <DependentUpon>aspIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspTodasRequis.aspx.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspTodasRequis.aspx.designer.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspEnCompras.aspx.cs">
+      <DependentUpon>aspEnCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspEnCompras.aspx.designer.cs">
+      <DependentUpon>aspEnCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspRequiReembolso.aspx.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspRequiReembolso.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspRequiRev.aspx.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspRequiRev.aspx.designer.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspRequiNoAut.aspx.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspRequiNoAut.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspRequiFinalizada.aspx.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspRequiFinalizada.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspODCompra.aspx.cs">
+      <DependentUpon>aspODCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspODCompra.aspx.designer.cs">
+      <DependentUpon>aspODCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspInicioCompras.aspx.cs">
+      <DependentUpon>aspInicioCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspInicioCompras.aspx.designer.cs">
+      <DependentUpon>aspInicioCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspNuevaRequi.aspx.cs">
+      <DependentUpon>aspNuevaRequi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspNuevaRequi.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspEnCompras.aspx.cs">
+      <DependentUpon>aspEnCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspEnCompras.aspx.designer.cs">
+      <DependentUpon>aspEnCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspRequiReembolso.aspx.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspRequiReembolso.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspRequiRev.aspx.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspRequiRev.aspx.designer.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspRequiNoAut.aspx.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspRequiNoAut.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspRequiFinalizada.aspx.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspRequiFinalizada.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspTodasRequis.aspx.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspTodasRequis.aspx.designer.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspComprasCom.aspx.cs">
+      <DependentUpon>aspComprasCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspComprasCom.aspx.designer.cs">
+      <DependentUpon>aspComprasCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspActPartidaCom.aspx.cs">
+      <DependentUpon>aspActPartidaCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspActPartidaCom.aspx.designer.cs">
+      <DependentUpon>aspActPartidaCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspPartidasPenCom.aspx.cs">
+      <DependentUpon>aspPartidasPenCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspPartidasPenCom.aspx.designer.cs">
+      <DependentUpon>aspPartidasPenCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspPartidasFinalCom.aspx.cs">
+      <DependentUpon>aspPartidasFinalCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspPartidasFinalCom.aspx.designer.cs">
+      <DependentUpon>aspPartidasFinalCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspPartidasUrgentesCom.aspx.cs">
+      <DependentUpon>aspPartidasUrgentesCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspPartidasUrgentesCom.aspx.designer.cs">
+      <DependentUpon>aspPartidasUrgentesCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspNuevaODCCom.aspx.cs">
+      <DependentUpon>aspNuevaODCCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspNuevaODCCom.aspx.designer.cs">
+      <DependentUpon>aspNuevaODCCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspODCRevisionCom.aspx.cs">
+      <DependentUpon>aspODCRevisionCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspODCRevisionCom.aspx.designer.cs">
+      <DependentUpon>aspODCRevisionCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspODCAutorizadasCom.aspx.cs">
+      <DependentUpon>aspODCAutorizadasCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspODCAutorizadasCom.aspx.designer.cs">
+      <DependentUpon>aspODCAutorizadasCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspODCExcentoIVACom.aspx.cs">
+      <DependentUpon>aspODCExcentoIVACom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspODCExcentoIVACom.aspx.designer.cs">
+      <DependentUpon>aspODCExcentoIVACom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspODCImpuestosCom.aspx.cs">
+      <DependentUpon>aspODCImpuestosCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspODCImpuestosCom.aspx.designer.cs">
+      <DependentUpon>aspODCImpuestosCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspNuevoProveedorCom.aspx.cs">
+      <DependentUpon>aspNuevoProveedorCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspNuevoProveedorCom.aspx.designer.cs">
+      <DependentUpon>aspNuevoProveedorCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspEditarCompras.aspx.cs">
+      <DependentUpon>aspEditarCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspEditarCompras.aspx.designer.cs">
+      <DependentUpon>aspEditarCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspEditarPartida.aspx.cs">
+      <DependentUpon>aspEditarPartida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspEditarPartida.aspx.designer.cs">
+      <DependentUpon>aspEditarPartida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\aspEditarPartPendiente.aspx.cs">
+      <DependentUpon>aspEditarPartPendiente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspEditarPartPendiente.aspx.designer.cs">
+      <DependentUpon>aspEditarPartPendiente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\master_Compras.Master.cs">
+      <DependentUpon>master_Compras.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\master_Compras.Master.designer.cs">
+      <DependentUpon>master_Compras.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspInicioDG.aspx.cs">
+      <DependentUpon>aspInicioDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspInicioDG.aspx.designer.cs">
+      <DependentUpon>aspInicioDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspRequiDG.aspx.cs">
+      <DependentUpon>aspRequiDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspRequiDG.aspx.designer.cs">
+      <DependentUpon>aspRequiDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspNuevaRequiDG.aspx.cs">
+      <DependentUpon>aspNuevaRequiDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspNuevaRequiDG.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequiDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspEnComprasDG.aspx.cs">
+      <DependentUpon>aspEnComprasDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspEnComprasDG.aspx.designer.cs">
+      <DependentUpon>aspEnComprasDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspRequiReembolsoDG.aspx.cs">
+      <DependentUpon>aspRequiReembolsoDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspRequiReembolsoDG.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolsoDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspRequiRevDG.aspx.cs">
+      <DependentUpon>aspRequiRevDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspRequiRevDG.aspx.designer.cs">
+      <DependentUpon>aspRequiRevDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspRequiNoAutDG.aspx.cs">
+      <DependentUpon>aspRequiNoAutDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspRequiNoAutDG.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAutDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspRequiFinalizadaDG.aspx.cs">
+      <DependentUpon>aspRequiFinalizadaDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspRequiFinalizadaDG.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizadaDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspTodasRequisDG.aspx.cs">
+      <DependentUpon>aspTodasRequisDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspTodasRequisDG.aspx.designer.cs">
+      <DependentUpon>aspTodasRequisDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspEditarRequiDG.aspx.cs">
+      <DependentUpon>aspEditarRequiDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspEditarRequiDG.aspx.designer.cs">
+      <DependentUpon>aspEditarRequiDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\maestra_DG.Master.cs">
+      <DependentUpon>maestra_DG.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\maestra_DG.Master.designer.cs">
+      <DependentUpon>maestra_DG.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspInicioDM.aspx.cs">
+      <DependentUpon>aspInicioDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspInicioDM.aspx.designer.cs">
+      <DependentUpon>aspInicioDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspNuevaRequiDM.aspx.cs">
+      <DependentUpon>aspNuevaRequiDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspNuevaRequiDM.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequiDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspEnComprasDM.aspx.cs">
+      <DependentUpon>aspEnComprasDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspEnComprasDM.aspx.designer.cs">
+      <DependentUpon>aspEnComprasDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspRequiReembolsoDM.aspx.cs">
+      <DependentUpon>aspRequiReembolsoDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspRequiReembolsoDM.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolsoDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspRequiRevDM.aspx.cs">
+      <DependentUpon>aspRequiRevDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspRequiRevDM.aspx.designer.cs">
+      <DependentUpon>aspRequiRevDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspRequiNoAutDM.aspx.cs">
+      <DependentUpon>aspRequiNoAutDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspRequiNoAutDM.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAutDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspRequiFinalizadaDM.aspx.cs">
+      <DependentUpon>aspRequiFinalizadaDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspRequiFinalizadaDM.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizadaDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspTodasRequisDM.aspx.cs">
+      <DependentUpon>aspTodasRequisDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspTodasRequisDM.aspx.designer.cs">
+      <DependentUpon>aspTodasRequisDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspEditarRequiDM.aspx.cs">
+      <DependentUpon>aspEditarRequiDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspEditarRequiDM.aspx.designer.cs">
+      <DependentUpon>aspEditarRequiDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\aspRequiDM.aspx.cs">
+      <DependentUpon>aspRequiDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\aspRequiDM.aspx.designer.cs">
+      <DependentUpon>aspRequiDM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DM\maestra_DM.Master.cs">
+      <DependentUpon>maestra_DM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DM\maestra_DM.Master.designer.cs">
+      <DependentUpon>maestra_DM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="aspNuevoProveedor.aspx.cs">
+      <DependentUpon>aspNuevoProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspNuevoProveedor.aspx.designer.cs">
+      <DependentUpon>aspNuevoProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspPartidasPendientes.aspx.cs">
+      <DependentUpon>aspPartidasPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspPartidasPendientes.aspx.designer.cs">
+      <DependentUpon>aspPartidasPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspPartidasFinalizadas.aspx.cs">
+      <DependentUpon>aspPartidasFinalizadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspPartidasFinalizadas.aspx.designer.cs">
+      <DependentUpon>aspPartidasFinalizadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspActualizarPartida.aspx.cs">
+      <DependentUpon>aspActualizarPartida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspActualizarPartida.aspx.designer.cs">
+      <DependentUpon>aspActualizarPartida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspABCUsuarios.aspx.cs">
+      <DependentUpon>aspABCUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspABCUsuarios.aspx.designer.cs">
+      <DependentUpon>aspABCUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspEditarUsuario.aspx.cs">
+      <DependentUpon>aspEditarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspEditarUsuario.aspx.designer.cs">
+      <DependentUpon>aspEditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="master_Principal.Master.cs">
+      <DependentUpon>master_Principal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master_Principal.Master.designer.cs">
+      <DependentUpon>master_Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspInicioRRMM.aspx.cs">
+      <DependentUpon>aspInicioRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspInicioRRMM.aspx.designer.cs">
+      <DependentUpon>aspInicioRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspNuevaRequiRRMM.aspx.cs">
+      <DependentUpon>aspNuevaRequiRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspNuevaRequiRRMM.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequiRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEnComprasRRMM.aspx.cs">
+      <DependentUpon>aspEnComprasRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEnComprasRRMM.aspx.designer.cs">
+      <DependentUpon>aspEnComprasRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspRequiReembolsoRRMM.aspx.cs">
+      <DependentUpon>aspRequiReembolsoRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspRequiReembolsoRRMM.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolsoRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspRequiRevRRMM.aspx.cs">
+      <DependentUpon>aspRequiRevRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspRequiRevRRMM.aspx.designer.cs">
+      <DependentUpon>aspRequiRevRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspRequiNoAutRRMM.aspx.cs">
+      <DependentUpon>aspRequiNoAutRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspRequiNoAutRRMM.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAutRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspRequiFinalizadaRRMM.aspx.cs">
+      <DependentUpon>aspRequiFinalizadaRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspRequiFinalizadaRRMM.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizadaRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspTodasRequisRRMM.aspx.cs">
+      <DependentUpon>aspTodasRequisRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspTodasRequisRRMM.aspx.designer.cs">
+      <DependentUpon>aspTodasRequisRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspRequiRRMM.aspx.cs">
+      <DependentUpon>aspRequiRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspRequiRRMM.aspx.designer.cs">
+      <DependentUpon>aspRequiRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspODCRRMM.aspx.cs">
+      <DependentUpon>aspODCRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspODCRRMM.aspx.designer.cs">
+      <DependentUpon>aspODCRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspComprasRRMM.aspx.cs">
+      <DependentUpon>aspComprasRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspComprasRRMM.aspx.designer.cs">
+      <DependentUpon>aspComprasRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspActPartidaRRMM.aspx.cs">
+      <DependentUpon>aspActPartidaRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspActPartidaRRMM.aspx.designer.cs">
+      <DependentUpon>aspActPartidaRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasPenRRMM.aspx.cs">
+      <DependentUpon>aspPartidasPenRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasPenRRMM.aspx.designer.cs">
+      <DependentUpon>aspPartidasPenRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasFinalRRMM.aspx.cs">
+      <DependentUpon>aspPartidasFinalRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasFinalRRMM.aspx.designer.cs">
+      <DependentUpon>aspPartidasFinalRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasUrgentesRRMM.aspx.cs">
+      <DependentUpon>aspPartidasUrgentesRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspPartidasUrgentesRRMM.aspx.designer.cs">
+      <DependentUpon>aspPartidasUrgentesRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspNuevaODCRRMM.aspx.cs">
+      <DependentUpon>aspNuevaODCRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspNuevaODCRRMM.aspx.designer.cs">
+      <DependentUpon>aspNuevaODCRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspODCRevision.aspx.cs">
+      <DependentUpon>aspODCRevision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspODCRevision.aspx.designer.cs">
+      <DependentUpon>aspODCRevision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspODCAutorizadas.aspx.cs">
+      <DependentUpon>aspODCAutorizadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspODCAutorizadas.aspx.designer.cs">
+      <DependentUpon>aspODCAutorizadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspODCExcentoIVA.aspx.cs">
+      <DependentUpon>aspODCExcentoIVA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspODCExcentoIVA.aspx.designer.cs">
+      <DependentUpon>aspODCExcentoIVA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspODCImpuestos.aspx.cs">
+      <DependentUpon>aspODCImpuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspODCImpuestos.aspx.designer.cs">
+      <DependentUpon>aspODCImpuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEditarRequiRRMM.aspx.cs">
+      <DependentUpon>aspEditarRequiRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarRequiRRMM.aspx.designer.cs">
+      <DependentUpon>aspEditarRequiRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEditarODCRRMM.aspx.cs">
+      <DependentUpon>aspEditarODCRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarODCRRMM.aspx.designer.cs">
+      <DependentUpon>aspEditarODCRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspNuevoProveedorRRMM.aspx.cs">
+      <DependentUpon>aspNuevoProveedorRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspNuevoProveedorRRMM.aspx.designer.cs">
+      <DependentUpon>aspNuevoProveedorRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEditarComprasRRMM.aspx.cs">
+      <DependentUpon>aspEditarComprasRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarComprasRRMM.aspx.designer.cs">
+      <DependentUpon>aspEditarComprasRRMM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEditarPartida.aspx.cs">
+      <DependentUpon>aspEditarPartida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarPartida.aspx.designer.cs">
+      <DependentUpon>aspEditarPartida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\master_RRMM.Master.cs">
+      <DependentUpon>master_RRMM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\master_RRMM.Master.designer.cs">
+      <DependentUpon>master_RRMM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspInicioSistemas.aspx.cs">
+      <DependentUpon>aspInicioSistemas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspInicioSistemas.aspx.designer.cs">
+      <DependentUpon>aspInicioSistemas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspNuevaRequiSis.aspx.cs">
+      <DependentUpon>aspNuevaRequiSis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspNuevaRequiSis.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequiSis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspEnComprasSis.aspx.cs">
+      <DependentUpon>aspEnComprasSis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspEnComprasSis.aspx.designer.cs">
+      <DependentUpon>aspEnComprasSis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiReembolso.aspx.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiReembolso.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiRev.aspx.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiRev.aspx.designer.cs">
+      <DependentUpon>aspRequiRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiNoAut.aspx.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiNoAut.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiFinalizada.aspx.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspRequiFinalizada.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspTodasRequis.aspx.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspTodasRequis.aspx.designer.cs">
+      <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\maestra_Sistemas.Master.cs">
+      <DependentUpon>maestra_Sistemas.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\maestra_Sistemas.Master.designer.cs">
+      <DependentUpon>maestra_Sistemas.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspInicioUsu.aspx.cs">
+      <DependentUpon>aspInicioUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspInicioUsu.aspx.designer.cs">
+      <DependentUpon>aspInicioUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspNuevaRequiUsu.aspx.cs">
+      <DependentUpon>aspNuevaRequiUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspNuevaRequiUsu.aspx.designer.cs">
+      <DependentUpon>aspNuevaRequiUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspEnComprasUsu.aspx.cs">
+      <DependentUpon>aspEnComprasUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspEnComprasUsu.aspx.designer.cs">
+      <DependentUpon>aspEnComprasUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspRequiReembolsoUsu.aspx.cs">
+      <DependentUpon>aspRequiReembolsoUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspRequiReembolsoUsu.aspx.designer.cs">
+      <DependentUpon>aspRequiReembolsoUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspRequiRevUsu.aspx.cs">
+      <DependentUpon>aspRequiRevUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspRequiRevUsu.aspx.designer.cs">
+      <DependentUpon>aspRequiRevUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspRequiNoAutUsu.aspx.cs">
+      <DependentUpon>aspRequiNoAutUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspRequiNoAutUsu.aspx.designer.cs">
+      <DependentUpon>aspRequiNoAutUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspRequiFinalizadaUsu.aspx.cs">
+      <DependentUpon>aspRequiFinalizadaUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspRequiFinalizadaUsu.aspx.designer.cs">
+      <DependentUpon>aspRequiFinalizadaUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspTodasRequisUsu.aspx.cs">
+      <DependentUpon>aspTodasRequisUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspTodasRequisUsu.aspx.designer.cs">
+      <DependentUpon>aspTodasRequisUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\master_Usuario.Master.cs">
+      <DependentUpon>master_Usuario.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\master_Usuario.Master.designer.cs">
+      <DependentUpon>master_Usuario.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="master_Principal.Master" />
+    <Content Include="acceso.Master" />
+    <Content Include="DM\maestra_DM.Master" />
+    <Content Include="DG\maestra_DG.Master" />
+    <Content Include="Compras\master_Compras.Master" />
+    <Content Include=".editorconfig" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Controlsit.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Usuario\master_Usuario.Master" />
+    <Content Include="Sistemas\maestra_Sistemas.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52781</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52781/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>https://controlsit.mx/comprasHGO_V2</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Ubiety.StyleCop.0.0.5\build\Ubiety.StyleCop.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Ubiety.StyleCop.0.0.5\build\Ubiety.StyleCop.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

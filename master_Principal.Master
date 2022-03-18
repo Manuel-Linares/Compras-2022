@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master_Principal.master.cs" Inherits="wsCompras_Hgo.master_Principal" %>
+
+<!DOCTYPE html>
+
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%--<link href="CSS/style.css" rel="stylesheet" />--%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Sistema de Compras Hidalgo</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%int dt = DateTime.Now.Year;%>
+
+        <%--<table style="width: 100%;">
+            <tr>
+                <td style="text-align: left; width: 20%">
+                    <img alt="Compras" src="Imagenes/Sistema_compras.png" style="width: 100%" /></td>
+                <td class="sesion">Bienvenido &nbsp;<asp:Label ID="lblSesion" runat="server" Text=""><%=Session["nombre"]%></asp:Label>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Imagenes/person_110935.png" OnClick="ImageButton1_Click" Width="2%" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="sesion">--%>
+
+        <asp:Panel ID="pnl1" runat="server" Visible="false">
+            <asp:LinkButton ID="lnkCancelar" runat="server" OnClick="lnkCancelar_Click">Cancelar</asp:LinkButton>&nbsp&nbsp
+                            <asp:LinkButton ID="lnkCerrar" runat="server" OnClick="lnkCerrar_Click">Cerrar Sesión</asp:LinkButton>
+        </asp:Panel>
+        <%-- </td>
+            </tr>
+        </table>--%>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="aspIndex.aspx?msg=0">
+                <img alt="Compras" src="Imagenes/Sistema_compras.png" height="24" class="d-inline-block align-text-top" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Requisiciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="aspNuevaRequi.aspx">Nueva Requisición</a>
+                            <a class="dropdown-item" href="aspEnCompras.aspx">En Compras</a>
+                            <a class="dropdown-item" href="aspRequiReembolso.aspx">Reembolso / Servicio</a>
+                            <a class="dropdown-item" href="aspRequiRev.aspx">Para Revisión</a>
+                            <a class="dropdown-item" href="aspRequiNoAut.aspx">No Autorizadas</a>
+                            <a class="dropdown-item" href="aspRequiFinalizada.aspx">Finalizadas</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="aspTodasRequis.aspx">Todas</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compras
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Compras</a>
+                            <a class="dropdown-item" href="#">Actualizar Partidas</a>
+                            <a class="dropdown-item" href="aspPartidasPendientes.aspx">Partidas Pendientes</a>
+                            <a class="dropdown-item" href="aspPartidasFinalizadas.aspx">Finalizadas</a>
+                            <a class="dropdown-item" href="#">Urgentes</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Órdenes de Compra
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="aspODCompra.aspx">Nueva</a>
+                            <a class="dropdown-item" href="#">ODC Revisión</a>
+                            <a class="dropdown-item" href="#">ODC Autorizadas</a>
+                            <a class="dropdown-item" href="#">ODC Exento IVA</a>
+                            <a class="dropdown-item" href="#">ODC Impuestos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="aspABCUsuarios.aspx">Usuarios</a>
+                            <a class="dropdown-item" href="aspABCPlaza.apsx">Plaza</a>
+                            <a class="dropdown-item" href="aspABCPuesto.aspx">Puesto</a>
+                            <a class="dropdown-item" href="aspABCProyecto.apsx">Proyecto</a>
+                            <a class="dropdown-item" href="aspABCArea.apsx">Área</a>
+                            <a class="dropdown-item" href="aspABCSubarea.apsx">Subarea</a>
+                            <a class="dropdown-item" href="aspABCCuentas.apsx">Cuentas</a>
+                            <a class="dropdown-item" href="aspABCUdemedicion.apsx">Unidad de Medición</a>
+                            <a class="dropdown-item" href="aspABCPermisos.apsx">Permisos</a>
+                            <a class="dropdown-item" href="aspABCEstatus.apsx">Estatus</a>
+                            <a class="dropdown-item" href="aspABCPrioridad.apsx">Prioridad</a>
+                            <a class="dropdown-item" href="aspABCProveedor.apsx">Proveedor</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="oi oi-account-login"></span>Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+        </ul>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="container-fluid text-center">
+                <p>Fundación Teletón México A.C. @ <%=dt.ToString()%></p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

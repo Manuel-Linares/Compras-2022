@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_ODC" value="name:id;datatype:int,name:FCREACION;datatype:string,name:proveedor;datatype:string,name:provdomi;datatype:string,name:provrfc;datatype:string,name:provtel;datatype:string,name:contacto;datatype:string,name:contacmail;datatype:string,name:consignara;datatype:string,name:entregara;datatype:string,name:FEMBARQUE;datatype:string,name:centrocostos;datatype:string,name:condiembarque;datatype:blob,name:COMITE;datatype:string,name:observaciones;datatype:blob,name:area;datatype:string,name:AUTRM;datatype:datetime,name:AUTDO;datatype:datetime" />
+	<infoitem key="UD_ODCDETA" value="name:id;datatype:int,name:odcid;datatype:int,name:codigo;datatype:string,name:descripcion;datatype:string,name:udemedida;datatype:string,name:cantidad;datatype:real,name:punitario;datatype:real,name:partidafolio;datatype:int" />
+</info>

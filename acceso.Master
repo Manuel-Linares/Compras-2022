@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="acceso.master.cs" Inherits="wsCompras_Hgo.acceso" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="CSS/acceso.css" rel="stylesheet" />
+    <title>Sistema de Compras Hidalgo</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%int dt = DateTime.Now.Year;%>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <img alt="Compras" src="Imagenes/Sistema_compras.png" style="width:30%"/>
+                </td>
+            </tr>
+        </table>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <p class="footer">Fundación Teletón México A.C. @ <%=dt.ToString()%></p>
+        </div>
+    </form>
+</body>
+</html>
