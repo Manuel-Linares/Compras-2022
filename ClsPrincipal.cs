@@ -214,7 +214,7 @@ namespace wsCompras_Hgo
         {
             _da = new MySqlDataAdapter("CALL listarDetallesodc (" + folio + ");", con);
             _ds = new DataSet();
-            _da.Fill(_ds, "DETALLESODC");
+            _da.Fill(_ds, "DETALLESODC");   
             return _ds;
         }
 
@@ -361,9 +361,9 @@ namespace wsCompras_Hgo
             return _ds;
         }
 
-        public DataSet ConsultaSubarea(string con)
+        public DataSet ConsultaSubarea(string con, int area)
         {
-            _da = new MySqlDataAdapter("SELECT * FROM subarea", con);
+            _da = new MySqlDataAdapter("SELECT * FROM subarea where area =" + area, con);
             _ds = new DataSet();
             _da.Fill(_ds, "subarea");
             return _ds;

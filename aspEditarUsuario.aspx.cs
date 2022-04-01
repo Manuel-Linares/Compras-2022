@@ -12,6 +12,8 @@ namespace wsCompras_Hgo
     public partial class Formulario_web115 : System.Web.UI.Page
     {
         int id = 0;
+        bool ban = false;
+        string area = "", subarea="";
         DataSet ds;
         DataTable dt;
         ClsPrincipal obj = new ClsPrincipal();
@@ -24,9 +26,11 @@ namespace wsCompras_Hgo
                 LlenarUserlevel();
                 LlenarPlaza();
                 LlenarArea();
-                LlenarSubarea();
                 LlenarPuesto();
                 usuario();
+                LlenarSubarea(int.Parse(area));
+
+                dwlSubarea.SelectedValue = subarea;
             }
         }
 
@@ -56,7 +60,8 @@ namespace wsCompras_Hgo
                 dwlStatus.SelectedValue = dt.Rows[0]["Status"].ToString();
                 dwlPlaza.SelectedValue = dt.Rows[0]["Plaza"].ToString();
                 dwlArea.SelectedValue = dt.Rows[0]["Área"].ToString();
-                dwlSubarea.SelectedValue = dt.Rows[0]["Subarea"].ToString();
+                area = dt.Rows[0]["Área"].ToString();
+                subarea = dt.Rows[0]["Subarea"].ToString();
                 dwlPuesto.SelectedValue = dt.Rows[0]["Puesto"].ToString();
             }
         }
@@ -100,16 +105,19 @@ namespace wsCompras_Hgo
             // Inserta un nuevo valor que no viene de la base de datos
         }
 
-        public void LlenarSubarea()
+        public void LlenarSubarea(int area)
         {
             // Limpia los datos del data set para reinciarlo
             ds = new DataSet();
-            ds = obj.ConsultaSubarea(Application["cnn"].ToString()); // Ejecutara el metodo que muestra a todos los tipos de empleados
+            ds = obj.ConsultaSubarea(Application["cnn"].ToString(), area); // Ejecutara el metodo que muestra a todos los tipos de empleados
             dwlSubarea.DataSource = ds; // Asigna valores de la consulta
             dwlSubarea.DataMember = "subarea"; // Alias que se utilizo en la clase
             dwlSubarea.DataValueField = "id"; // Toma la propiedad de value
             dwlSubarea.DataTextField = "subarea";  // Se visualiza y lo toma ITEM
             dwlSubarea.DataBind(); // Permite que se vean los datos en el control y en la pagina web
+
+            dwlSubarea.Items.Insert(0, "--Seleccione el subarea--");
+
 
             // Inserta un nuevo valor que no viene de la base de datos
         }
@@ -125,6 +133,11 @@ namespace wsCompras_Hgo
             dwlPuesto.DataTextField = "puesto"; // Se visualiza y lo toma ITEM
             dwlPuesto.DataBind(); // Permite que se vean los datos en el control y en la pagina web
             // Inserta un nuevo valor que no viene de la base de datos
+        }
+
+        protected void dwlArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarSubarea(int.Parse(dwlArea.SelectedValue));
         }
     }
 }
