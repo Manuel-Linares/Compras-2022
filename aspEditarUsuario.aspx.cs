@@ -36,7 +36,33 @@ namespace wsCompras_Hgo
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (!txtNombre.Text.Equals(string.Empty) && !txtContra.Text.Equals(string.Empty) && !txtEmail.Text.Equals(string.Empty))
+            {
+                MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
+                bool banSub = false;
 
+                if (dwlSubarea.SelectedValue.Equals(0))
+                {
+                    banSub = true;
+                }
+
+                if (banSub)
+                {
+                    string query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
+                        dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", NULL," + dwlPuesto.SelectedValue + ",'" +
+                        txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                }
+                else
+                {
+                    string query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
+                        dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", " + dwlSubarea.SelectedValue + "," +
+                        dwlPuesto.SelectedValue + ",'" + txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Faltan datos: nombre, contraseña y email deben ser correcots');", true);
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

@@ -68,7 +68,7 @@
         <tr>
             <td colspan="5" style="text-align:center">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" /> &nbsp&nbsp&nbsp&nbsp
-                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" /></td>
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClientClick="JavaScript:window.history.back(1); return false;" /></td>
         </tr>
         </table>
 </asp:Content>
