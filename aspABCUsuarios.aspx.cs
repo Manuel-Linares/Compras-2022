@@ -34,7 +34,7 @@ namespace wsCompras_Hgo
 
             lblRequis.Visible = false;
             grdUsu.DataSource = BindGridView();
-            grdUsu.DataMember = "REEMBOLSOSERVICIO";
+            grdUsu.DataMember = "USUARIOS_TODOS";
             grdUsu.DataBind();
             foreach (GridViewRow gr in grdUsu.Rows)
             {
@@ -82,6 +82,11 @@ namespace wsCompras_Hgo
             if (Session["SortedView"] != null)
             {
                 grdUsu.DataSource = Session["SortedView"];
+                grdUsu.DataBind();
+            }
+            else
+            {
+                grdUsu.DataSource = BindGridView();
                 grdUsu.DataBind();
             }
         }

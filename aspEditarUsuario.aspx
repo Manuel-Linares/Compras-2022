@@ -40,7 +40,7 @@
          <tr>
              <td colspan="2" style="font-family: Arial; width: 20%">Área: </td>
              <td colspan="3" style="text-align: left">
-                 <asp:DropDownList ID="dwlArea" runat="server"></asp:DropDownList></td>
+                 <asp:DropDownList ID="dwlArea" runat="server" AutoPostBack="True" OnSelectedIndexChanged="dwlArea_SelectedIndexChanged"></asp:DropDownList></td>
          </tr>
          <tr>
              <td colspan="2" style="font-family: Arial; width: 20%">Subarea: </td>

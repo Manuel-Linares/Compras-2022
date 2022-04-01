@@ -45,6 +45,7 @@
             <td colspan="4" style="text-align: left">
                 <asp:DropDownList ID="dwlConsignar" AutoPostBack="true" runat="server" Width="50%">
                     <asp:ListItem>CRIT Hidalgo</asp:ListItem>
+                    <asp:ListItem>CRIT Veracruz</asp:ListItem>
                 </asp:DropDownList></td>
         </tr>
         <tr>
@@ -80,17 +81,17 @@
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Cotización 1 </td>
             <td colspan="4" style="text-align: left">
-                <asp:FileUpload ID="fluCotizacion1" runat="server" /></td>
+                <asp:FileUpload ID="fluCotizacion1" runat="server" Enabled="False"/><span style="color: red">*Deshabilitado</span></td>
         </tr>
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Cotización 2 </td>
             <td colspan="4" style="text-align: left">
-                <asp:FileUpload ID="fluCotizacion2" runat="server" /></td>
+                <asp:FileUpload ID="fluCotizacion2" runat="server" Enabled="False"/><span style="color: red">*Deshabilitado</span></td>
         </tr>
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Cotización 3 </td>
             <td colspan="4" style="text-align: left">
-                <asp:FileUpload ID="fluCotizacion3" runat="server" /></td>
+                <asp:FileUpload ID="fluCotizacion3" runat="server" Enabled="False"/><span style="color: red">*Deshabilitado</span></td>
         </tr>
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Comite </td>
@@ -101,7 +102,7 @@
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Archivo comité </td>
             <td colspan="4" style="text-align: left">
-                <asp:FileUpload ID="fluComite" runat="server" /></td>
+                <asp:FileUpload ID="fluComite" runat="server" Enabled="False" /><span style="color: red">*Deshabilitado</span></td>
         </tr>
         <tr>
             <td colspan="3" style="font-family: Arial; width: 20%">Observaciones </td>
