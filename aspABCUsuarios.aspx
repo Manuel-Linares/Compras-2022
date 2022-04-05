@@ -12,6 +12,9 @@
             </td>
         </tr>
         <tr>
+            <td><a href="aspNuevoUsuario.aspx"><i class="fa-solid fa-plus"></i> Agregar nuevo usuario</a></td>
+        </tr>
+        <tr>
             <td>
                 <asp:GridView ID="grdUsu" class="table table-bordered table-condensed table-hover" runat="server" AllowPaging="True" AllowSorting="True" OnPageIndexChanging="grdUsu_PageIndexChanging" OnSorting="grdUsu_Sorting" PageSize="15">
                     <SortedAscendingHeaderStyle CssClass="sort_asc" />

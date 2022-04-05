@@ -153,6 +153,7 @@
     <Content Include="DM\aspRequiDM.aspx" />
     <Content Include="aspABCUsuarios.aspx" />
     <Content Include="aspEditarUsuario.aspx" />
+    <Content Include="aspNuevoUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\157-1576931_plus-sign-play-button-vector-png-transparent-png.png" />
     <Content Include="Imagenes\calendario.png" />
@@ -642,6 +643,13 @@
     </Compile>
     <Compile Include="aspEditarUsuario.aspx.designer.cs">
       <DependentUpon>aspEditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspNuevoUsuario.aspx.cs">
+      <DependentUpon>aspNuevoUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspNuevoUsuario.aspx.designer.cs">
+      <DependentUpon>aspNuevoUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

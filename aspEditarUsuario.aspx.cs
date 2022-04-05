@@ -40,24 +40,55 @@ namespace wsCompras_Hgo
             {
                 MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
                 bool banSub = false;
+                string query = string.Empty;
 
-                if (dwlSubarea.SelectedValue.Equals(0))
+                if (dwlSubarea.SelectedIndex.Equals(0))
                 {
                     banSub = true;
                 }
 
-                if (banSub)
+                try
                 {
-                    string query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
-                        dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", NULL," + dwlPuesto.SelectedValue + ",'" +
-                        txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                    if (banSub)
+                    {
+                        query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
+                            dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", NULL," + dwlPuesto.SelectedValue + ",'" +
+                            txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                    }
+                    else
+                    {
+                        query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
+                            dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", " + dwlSubarea.SelectedValue + "," +
+                            dwlPuesto.SelectedValue + ",'" + txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                    }
+
+                    _conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, _conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        if (rdr[0].ToString() == "1")
+                        {
+                            // Inserción exitosa
+                            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
+                        }
+                        else
+                        {
+                            // Error
+                            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No se pudo registrar');", true);
+                        }
+                    }
+
+                    rdr.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    string query = "CALL editarUsuario(" + lblId.Text + ",'" + txtNombre.Text + "', '" + txtContra.Text + "', " +
-                        dwlUserlevel.SelectedValue + ", " + dwlPlaza.SelectedValue + "," + dwlArea.SelectedValue + ", " + dwlSubarea.SelectedValue + "," +
-                        dwlPuesto.SelectedValue + ",'" + txtEmail.Text + "','" + dwlStatus.SelectedValue + "');";
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD, detalles: " + ex.ToString() + "');", true);
                 }
+
+                _conn.Close();
+                Response.Redirect("aspIndex.aspx?msg=2");
             }
             else
             {
