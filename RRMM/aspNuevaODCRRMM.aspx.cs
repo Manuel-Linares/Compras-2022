@@ -12,7 +12,7 @@ namespace wsCompras_Hgo.RRMM
     public partial class Formulario_web115 : System.Web.UI.Page
     {
         ClsPrincipal _obj = new ClsPrincipal();
-        DataSet _dsRequi;// Data set local a la pagina
+        DataSet _dsRequi; // Data set local a la pagina
         DataTable _dtCompra;
         string cod1, cod2, cod3, cod4, cod5, cod6, cod7, cod8, cod9, cod10;
         string desc1, desc2, desc3, desc4, desc5, desc6, desc7, desc8, desc9, desc10;
