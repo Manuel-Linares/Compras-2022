@@ -31,7 +31,7 @@ namespace wsCompras_Hgo
         {
             MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
             bool ban = false;
-            string[] arreglo = new string[7];
+            string[] arreglo = new string[8];
             int i = 0;
             try
             {
@@ -65,6 +65,7 @@ namespace wsCompras_Hgo
                         arreglo[4] = rdr[4].ToString();
                         arreglo[5] = rdr[5].ToString();
                         arreglo[6] = rdr[6].ToString();
+                        arreglo[7] = rdr[7].ToString();
                     }
                 }
 
@@ -115,6 +116,9 @@ namespace wsCompras_Hgo
                                 Session["subarea"] = int.Parse(arreglo[k]);
                             }
 
+                            break;
+                        case 7:
+                            Session["puesto"] = int.Parse(arreglo[k]);
                             break;
                     }
                 }

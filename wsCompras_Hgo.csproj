@@ -208,6 +208,7 @@
     <Content Include="Usuario\aspRequiNoAutUsu.aspx" />
     <Content Include="Usuario\aspRequiFinalizadaUsu.aspx" />
     <Content Include="Usuario\aspTodasRequisUsu.aspx" />
+    <Content Include="Usuario\aspEditarContra.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -969,6 +970,13 @@
     </Compile>
     <Compile Include="Usuario\aspTodasRequisUsu.aspx.designer.cs">
       <DependentUpon>aspTodasRequisUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\aspEditarContra.aspx.cs">
+      <DependentUpon>aspEditarContra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\aspEditarContra.aspx.designer.cs">
+      <DependentUpon>aspEditarContra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuario\master_Usuario.Master.cs">
       <DependentUpon>master_Usuario.Master</DependentUpon>

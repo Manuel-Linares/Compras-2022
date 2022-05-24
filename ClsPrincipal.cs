@@ -112,6 +112,22 @@ namespace wsCompras_Hgo
             return _ds;
         }
 
+        public DataSet listarRequis(string con, int usuario, int puesto, int area, int plaza)
+        {
+            if (puesto.Equals(6) || puesto.Equals(10) || puesto.Equals(14) || puesto.Equals(26) || puesto.Equals(7) || puesto.Equals(9) || puesto.Equals(13) || puesto.Equals(15) || puesto.Equals(16) || puesto.Equals(17) || puesto.Equals(19) || puesto.Equals(23) || puesto.Equals(34) || puesto.Equals(39))
+            {
+                _da = new MySqlDataAdapter("SELECT A.FOLIO, A.`FECHA DE CREACIÓN`, C.nombre, A.CUENTA, A.ESTATUS, A.OBSERVACIONES, A.PRIORIDAD, A.`FECHA AUTORIZACIÓN` FROM REQUITODAS A, `area` B, usuarios C, plaza D WHERE A.area = B.area AND A.userid = C.id AND A.PLAZA = D.crit AND B.id = " + area + " AND D.id = " + plaza, con);
+            }
+            else
+            {
+                _da = new MySqlDataAdapter("SELECT A.FOLIO, A.`FECHA DE CREACIÓN`, C.nombre, A.CUENTA, A.ESTATUS, A.OBSERVACIONES, A.PRIORIDAD, A.`FECHA AUTORIZACIÓN` FROM REQUITODAS A, `area` B, usuarios C, plaza D WHERE A.area = B.area AND A.userid = C.id AND A.PLAZA = D.crit AND D.id = " + plaza + " AND A.userid = " + usuario, con);
+            }
+
+            _ds = new DataSet();
+            _da.Fill(_ds, "REQUITODAS");
+            return _ds;
+        }
+
         public DataSet listarRequis(string con)
         {
             _da = new MySqlDataAdapter("SELECT * FROM REQUITODAS", con);

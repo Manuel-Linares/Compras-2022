@@ -25,6 +25,7 @@ namespace wsCompras_Hgo
             Session["userlevel"] = 0;
             Session["area"] = 0;
             Session["subarea"] = 0;
+            Session["puesto"] = 0;
             Session.Timeout = 1200;
         }
 
