@@ -118,7 +118,15 @@ namespace wsCompras_Hgo
 
                             break;
                         case 7:
-                            Session["puesto"] = int.Parse(arreglo[k]);
+                            if (!Session["userlevel"].Equals(-1))
+                            {
+                                Session["puesto"] = int.Parse(arreglo[k]);
+                            }
+                            else
+                            {
+                                Session["puesto"] = 0;
+                            }
+                            
                             break;
                     }
                 }
