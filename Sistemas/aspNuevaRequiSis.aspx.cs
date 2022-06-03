@@ -119,6 +119,7 @@ namespace wsCompras_Hgo.Sistemas
             // Inserta un nuevo valor que no viene de la base de datos 
             dwl.Items.Insert(0, "--Unidad--");
         }
+
         public void LlenarPrioridad()
         {
             // Limpia los datos del data set para reinciarlo

@@ -252,6 +252,7 @@
     <Content Include="Sistemas\aspRequiNoAut.aspx" />
     <Content Include="Sistemas\aspRequiFinalizada.aspx" />
     <Content Include="Sistemas\aspTodasRequis.aspx" />
+    <Content Include="Sistemas\aspOrdenDePago.aspx" />
     <Content Include="Usuario\aspInicioUsu.aspx" />
     <Content Include="Usuario\aspNuevaRequiUsu.aspx" />
     <Content Include="Usuario\aspEnComprasUsu.aspx" />
@@ -966,6 +967,13 @@
     </Compile>
     <Compile Include="Sistemas\aspTodasRequis.aspx.designer.cs">
       <DependentUpon>aspTodasRequis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\aspOrdenDePago.aspx.cs">
+      <DependentUpon>aspOrdenDePago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistemas\aspOrdenDePago.aspx.designer.cs">
+      <DependentUpon>aspOrdenDePago.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sistemas\maestra_Sistemas.Master.cs">
       <DependentUpon>maestra_Sistemas.Master</DependentUpon>

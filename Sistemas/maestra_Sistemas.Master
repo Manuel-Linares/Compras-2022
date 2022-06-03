@@ -45,6 +45,9 @@
             <li><a href="aspRequiFinalizada.aspx">Finalizadas</a></li>
             <li><a href="aspTodasRequis.aspx">Todas</a></li>
             <hr />
+            <li>Orden de Pago</li>
+            <li>&nbsp;</li>
+            <li><a href="aspOrdenDePago.aspx">Subir OP</a></li>
         </ul>
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

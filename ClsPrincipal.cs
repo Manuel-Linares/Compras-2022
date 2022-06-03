@@ -80,6 +80,7 @@ namespace wsCompras_Hgo
             return _ds;
         }
 
+
         public DataSet ConsultaUsuarios(string con)
         {
             _da = new MySqlDataAdapter("SELECT DISTINCT `usuarios`.nombre, `COMPRAS`.userid  FROM `COMPRAS`, `usuarios` WHERE `COMPRAS`.userid = `usuarios`.id", con);
@@ -95,6 +96,15 @@ namespace wsCompras_Hgo
             _da.Fill(_ds, "prioricompra");
             return _ds;
         }
+
+        public DataSet ConsultaRequi(string con)
+        {
+            _da = new MySqlDataAdapter("SELECT * FROM requi WHERE estatus IN ('Compras', 'Reembolso / Servicio', 'Finalizada')", con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "requi");
+            return _ds;
+        }
+
 
         public DataSet IniciarSesion(string usu, string pass, string con)
         {

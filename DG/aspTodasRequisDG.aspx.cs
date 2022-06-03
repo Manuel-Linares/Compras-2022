@@ -27,7 +27,7 @@ namespace wsCompras_Hgo.DG
         private DataTable BindGridView()
         {
             ds = new DataSet();
-            ds = obj.listarRequis(Application["cnn"].ToString(), int.Parse(Session["idUsuario"].ToString()));
+            ds = obj.listarRequis(Application["cnn"].ToString(), int.Parse(Session["idUsuario"].ToString()), int.Parse(Session["puesto"].ToString()), int.Parse(Session["area"].ToString()), int.Parse(Session["plaza"].ToString()));
             return ds.Tables[0];
         }
 
