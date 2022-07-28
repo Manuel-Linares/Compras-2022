@@ -80,7 +80,6 @@ namespace wsCompras_Hgo
             return _ds;
         }
 
-
         public DataSet ConsultaUsuarios(string con)
         {
             _da = new MySqlDataAdapter("SELECT DISTINCT `usuarios`.nombre, `COMPRAS`.userid  FROM `COMPRAS`, `usuarios` WHERE `COMPRAS`.userid = `usuarios`.id", con);
@@ -104,7 +103,6 @@ namespace wsCompras_Hgo
             _da.Fill(_ds, "requi");
             return _ds;
         }
-
 
         public DataSet IniciarSesion(string usu, string pass, string con)
         {
@@ -212,7 +210,8 @@ namespace wsCompras_Hgo
 
         public DataSet listarPartidas(string con, int usuario)
         {
-            _da = new MySqlDataAdapter("SELECT FOLIOREQUI as Requi, FOLIOPARTIDA as Folio,CANTIDAD as Cantidad, DESCRIPCION as Descripción, MEDICION as Medición, COMENTC as Comentarios, odc as 'Orden de Compra',factura as Factura, ORDENDEPAGO as 'Orden de pago'," +
+            _da = new MySqlDataAdapter(
+                "SELECT FOLIOREQUI as Requi, FOLIOPARTIDA as Folio,CANTIDAD as Cantidad, DESCRIPCION as Descripción, MEDICION as Medición, COMENTC as Comentarios, odc as 'Orden de Compra',factura as Factura, ORDENDEPAGO as 'Orden de pago'," +
                 "FE_ULTIMAACT as 'Actualización', ESTATUS as Estatus FROM PARTIDAS_PENDIENTES order by Requi desc", con);
             _ds = new DataSet();
             _da.Fill(_ds, "PARTIDAS_PENDIENTES");
@@ -221,7 +220,8 @@ namespace wsCompras_Hgo
 
         public DataSet listarPartidasCompras(string con, int folio)
         {
-            _da = new MySqlDataAdapter("SELECT FOLIOREQUI as Requi, FOLIOPARTIDA as Folio,CANTIDAD as Cantidad, DESCRIPCION as Descripción, MEDICION as Medición, COMENTC as Comentarios, odc as 'Orden de Compra',factura as Factura, ORDENDEPAGO as 'Orden de pago'," +
+            _da = new MySqlDataAdapter(
+                "SELECT FOLIOREQUI as Requi, FOLIOPARTIDA as Folio,CANTIDAD as Cantidad, DESCRIPCION as Descripción, MEDICION as Medición, COMENTC as Comentarios, odc as 'Orden de Compra',factura as Factura, ORDENDEPAGO as 'Orden de pago'," +
                 "FE_ULTIMAACT as 'Actualización', ESTATUS as Estatus FROM PARTIDAS_PENDIENTES WHERE FOLIOREQUI = " + folio + " order by Requi desc", con);
             _ds = new DataSet();
             _da.Fill(_ds, "PARTIDAS_PENDIENTES");
@@ -240,7 +240,7 @@ namespace wsCompras_Hgo
         {
             _da = new MySqlDataAdapter("CALL listarDetallesodc (" + folio + ");", con);
             _ds = new DataSet();
-            _da.Fill(_ds, "DETALLESODC");   
+            _da.Fill(_ds, "DETALLESODC");
             return _ds;
         }
 
@@ -318,8 +318,25 @@ namespace wsCompras_Hgo
             {
                 _da = new MySqlDataAdapter("SELECT `FOLIOREQUI` as 'Folio Requisición', `FOLIOPARTIDA` as 'Folio Partida', `CANTIDAD` as 'Cantidad', `DESCRIPCION` as 'Descripción', `MEDICION` as 'U. de Medición', `COMENTC` as 'Comentarios Compras', `odc` as 'Orden de Compra',`factura` as 'Factura',`ORDENDEPAGO` as 'Orden de Pago', `fe_ultimaact` as 'Última Actualización', `ESTATUS` as 'Estatus' FROM `PARTIDAS_PENDIENTES` WHERE `FOLIOREQUI`=" + foliorequi + " ", con);
             }
+
             _ds = new DataSet();
             _da.Fill(_ds, "PARTIDAS_PENDIENTES");
+            return _ds;
+        }
+
+        public DataSet listarPartidasUrgentes(string con, int plaza)
+        {
+            _da = new MySqlDataAdapter("SELECT `FOLIO`, `FECHA DE CREACIÓN`, `USUARIO`, `OBS.`, `OBS. DIRECCIÓN` FROM `REQUIS_URGENTESABIERTAS` WHERE `CRIT`=" + plaza, con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "PARTIDASURGENTES");
+            return _ds;
+        }
+
+        public DataSet listarPartidasFinalizadas(string con, int plaza)
+        {
+            _da = new MySqlDataAdapter("SELECT `FOLIO`, `FECHA DE CREACIÓN`, `AREA`, `USUARIO`, `CUENTA`, `PRIORIDAD`, `REQUISICIÓN`, `FECHA FINALIZACION`, `DIAS TRANSCURRIDOS` FROM `REQUIS_FINALIZADAS` WHERE `CRIT`=" + plaza, con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "PARTIDAS_FINALIZADAS");
             return _ds;
         }
 
@@ -331,12 +348,31 @@ namespace wsCompras_Hgo
             return _ds;
         }
 
+        public DataSet listarODCRRMM(string con, int plaza)
+        {
+            _da = new MySqlDataAdapter("SELECT A.id, A.fechacreacion, A.proveedor, B.area, A.centrocostos, A.observaciones FROM ODC_RRMM A, area B where A.area = B.id AND A.plaza = " + plaza, con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "ODC_RRMM");
+            return _ds;
+        }
+
         public DataSet listarODCAutorizadas(string con, int plaza)
         {
-            _da = new MySqlDataAdapter("SELECT id as 'Folio ODC', fechacreacion as 'Fecha de creación', proveedor as Proveedor, area as AREA, centrocostos as 'Centro de costos'," +
+            _da = new MySqlDataAdapter(
+                "SELECT id as 'Folio ODC', fechacreacion as 'Fecha de creación', proveedor as Proveedor, area as AREA, centrocostos as 'Centro de costos'," +
                 "observaciones as Observaciones, comite as Comité, coti1 as 'Cotización 1', coti2 as 'Cotización 2', coti3 as 'Cotización 3', fechaactrm as 'Autorización RM' FROM ODC_AUTORIZADAS WHERE plaza = " + plaza, con);
             _ds = new DataSet();
             _da.Fill(_ds, "ODC_AUTORIZADAS");
+            return _ds;
+        }
+
+        public DataSet listarODCRevision(string con, int plaza)
+        {
+            _da = new MySqlDataAdapter(
+                "SELECT id as 'Folio ODC', fechacreacion as 'Fecha de creación', proveedor as Proveedor, area as AREA, centrocostos as 'Centro de costos'," +
+                "observaciones as Observaciones, comite as Comité, coti1 as 'Cotización 1', coti2 as 'Cotización 2', coti3 as 'Cotización 3', estatus as 'Estatus' FROM ODC_NUEVA WHERE plaza = " + plaza, con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "ODC_REVISION");
             return _ds;
         }
 
@@ -345,6 +381,14 @@ namespace wsCompras_Hgo
             _da = new MySqlDataAdapter("SELECT * FROM USUARIOS_TODOS", con);
             _ds = new DataSet();
             _da.Fill(_ds, "USUARIOS_TODOS");
+            return _ds;
+        }
+
+        public DataSet listarOPDG(string con, int plaz)
+        {
+            _da = new MySqlDataAdapter("SELECT ID, `Folio de Orden`, Nombre, CRIT, Requisición, `Fecha de creación`, PDF FROM OP_NUEVA WHERE Plaza=" + plaz, con);
+            _ds = new DataSet();
+            _da.Fill(_ds, "OPDG");
             return _ds;
         }
 
@@ -452,6 +496,5 @@ namespace wsCompras_Hgo
             _da.Fill(_dt);
             return _dt;
         }
-
     }
 }

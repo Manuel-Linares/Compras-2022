@@ -17,6 +17,7 @@ namespace wsCompras_Hgo
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Request.QueryString["ses"].Equals("1"))
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Sesion cerrada');", true);

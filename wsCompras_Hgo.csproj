@@ -37,6 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
     <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -143,7 +144,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="compras.pfx" />
+    <Content Include="compras.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Compras\aspInicioCompras.aspx" />
     <Content Include="Compras\aspNuevaRequi.aspx" />
     <Content Include="Compras\aspEnCompras.aspx" />
@@ -166,6 +169,7 @@
     <Content Include="Compras\aspEditarCompras.aspx" />
     <Content Include="Compras\aspEditarPartida.aspx" />
     <Content Include="Compras\aspEditarPartPendiente.aspx" />
+    <Content Include="Compras\aspEditarODCCom.aspx" />
     <Content Include="CSS\acceso.css" />
     <Content Include="CSS\style.css" />
     <Content Include="aspNuevaRequi.aspx" />
@@ -188,6 +192,7 @@
     <Content Include="DG\aspRequiFinalizadaDG.aspx" />
     <Content Include="DG\aspTodasRequisDG.aspx" />
     <Content Include="DG\aspEditarRequiDG.aspx" />
+    <Content Include="DG\aspAutOPDG.aspx" />
     <Content Include="DM\aspInicioDM.aspx" />
     <Content Include="aspNuevoProveedor.aspx" />
     <Content Include="aspPartidasPendientes.aspx" />
@@ -208,6 +213,7 @@
     <Content Include="aspOrdenPago.aspx" />
     <Content Include="Firmas\DG_HGO.png" />
     <Content Include="Firmas\TI_HGO.png" />
+    <Content Include="aspABCProveedor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\157-1576931_plus-sign-play-button-vector-png-transparent-png.png" />
     <Content Include="Imagenes\calendario.png" />
@@ -218,6 +224,7 @@
     <Content Include="Imagenes\sort-arrows-couple-pointing-up-and-down.png" />
     <Content Include="Imagenes\sort-up.png" />
     <Content Include="Imagenes\Y2.png" />
+    <Content Include="JS\Scripts.js" />
     <Content Include="RRMM\aspInicioRRMM.aspx" />
     <Content Include="RRMM\aspNuevaRequiRRMM.aspx" />
     <Content Include="RRMM\aspEnComprasRRMM.aspx" />
@@ -243,6 +250,8 @@
     <Content Include="RRMM\aspNuevoProveedorRRMM.aspx" />
     <Content Include="RRMM\aspEditarComprasRRMM.aspx" />
     <Content Include="RRMM\aspEditarPartida.aspx" />
+    <Content Include="RRMM\aspEditarPartPendiente.aspx" />
+    <Content Include="RRMM\aspEditarRevRRMM.aspx" />
     <Content Include="RRMM\master_RRMM.Master" />
     <Content Include="Sistemas\aspInicioSistemas.aspx" />
     <Content Include="Sistemas\aspNuevaRequiSis.aspx" />
@@ -497,6 +506,13 @@
     <Compile Include="Compras\aspEditarPartPendiente.aspx.designer.cs">
       <DependentUpon>aspEditarPartPendiente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Compras\aspEditarODCCom.aspx.cs">
+      <DependentUpon>aspEditarODCCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras\aspEditarODCCom.aspx.designer.cs">
+      <DependentUpon>aspEditarODCCom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Compras\master_Compras.Master.cs">
       <DependentUpon>master_Compras.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -573,6 +589,13 @@
     </Compile>
     <Compile Include="DG\aspEditarRequiDG.aspx.designer.cs">
       <DependentUpon>aspEditarRequiDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DG\aspAutOPDG.aspx.cs">
+      <DependentUpon>aspAutOPDG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DG\aspAutOPDG.aspx.designer.cs">
+      <DependentUpon>aspAutOPDG.aspx</DependentUpon>
     </Compile>
     <Compile Include="DG\maestra_DG.Master.cs">
       <DependentUpon>maestra_DG.Master</DependentUpon>
@@ -713,6 +736,13 @@
     </Compile>
     <Compile Include="aspOrdenPago.aspx.designer.cs">
       <DependentUpon>aspOrdenPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspABCProveedor.aspx.cs">
+      <DependentUpon>aspABCProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspABCProveedor.aspx.designer.cs">
+      <DependentUpon>aspABCProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -905,6 +935,20 @@
     <Compile Include="RRMM\aspEditarPartida.aspx.designer.cs">
       <DependentUpon>aspEditarPartida.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RRMM\aspEditarPartPendiente.aspx.cs">
+      <DependentUpon>aspEditarPartPendiente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarPartPendiente.aspx.designer.cs">
+      <DependentUpon>aspEditarPartPendiente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RRMM\aspEditarRevRRMM.aspx.cs">
+      <DependentUpon>aspEditarRevRRMM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RRMM\aspEditarRevRRMM.aspx.designer.cs">
+      <DependentUpon>aspEditarRevRRMM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RRMM\master_RRMM.Master.cs">
       <DependentUpon>master_RRMM.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1060,8 +1104,6 @@
     <Content Include="DG\maestra_DG.Master" />
     <Content Include="Compras\master_Compras.Master" />
     <Content Include=".editorconfig" />
-    <Content Include="ODP\OP_Telmex_Abril.pdf" />
-    <Content Include="ODP\Factura.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Controlsit.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
@@ -1083,7 +1125,11 @@
     <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ODC\Comite\" />
+    <Folder Include="ODC\Cotizacion\" />
+    <Folder Include="ODP\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

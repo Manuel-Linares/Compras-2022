@@ -45,9 +45,9 @@
             <li><a href="aspRequiFinalizadaUsu.aspx">Finalizadas</a></li>
             <li><a href="aspTodasRequisUsu.aspx">Todas</a></li>
             <hr />
-            <li>Configuración</li>
-            <li>&nbsp;</li>
-            <li><a href="aspEditarContra.aspx">Contraseña</a></li>
+            <%--<li>Configuración</li>--%>
+<%--            <li>&nbsp;</li>
+            <li><a href="aspEditarContra.aspx">Contraseña</a></li>--%>
         </ul>
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

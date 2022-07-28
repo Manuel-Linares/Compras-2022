@@ -59,7 +59,7 @@
                <asp:Label ID="lblPrioridad" runat="server" Text="Label"></asp:Label> </td>
         </tr>
          <tr>
-             <td colspan="2" style="font-family: Arial; width: 20%">Observaciones DG: </td>
+             <td colspan="2" style="font-family: Arial; width: 20%">Observaciones RRMM: </td>
             <td colspan="3" style="text-align:left">
                 <asp:TextBox ID="txtObservacionesDG" runat="server" TextMode="MultiLine"></asp:TextBox></td>
         </tr>

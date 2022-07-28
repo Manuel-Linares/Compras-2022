@@ -28,7 +28,7 @@ namespace wsCompras_Hgo.RRMM
         private DataTable BindGridView()
         {
             ds = new DataSet();
-            ds = obj.listarODCRRMM(Application["cnn"].ToString());
+            ds = obj.listarODCRRMM(Application["cnn"].ToString(), int.Parse(Session["plaza"].ToString()));
             return ds.Tables[0];
         }
 

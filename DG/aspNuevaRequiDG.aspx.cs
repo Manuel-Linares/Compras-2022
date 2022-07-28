@@ -43,11 +43,14 @@ namespace wsCompras_Hgo.DG
         string uni8;
         string uni9;
         string uni10;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LlenarProyecto();
+                LlenarPrioridad();
+                dwlPrioridad.SelectedIndex = 1;
                 LlenarUnidad(dwlUnidad1);
                 LlenarUnidad(dwlUnidad2);
                 LlenarUnidad(dwlUnidad3);
@@ -114,6 +117,20 @@ namespace wsCompras_Hgo.DG
             dwl.DataBind();// Permite que se vean los datos en el control y en la pagina web
             // Inserta un nuevo valor que no viene de la base de datos 
             dwl.Items.Insert(0, "--Unidad--");
+        }
+
+        public void LlenarPrioridad()
+        {
+            // Limpia los datos del data set para reinciarlo
+            _dsRequi = new DataSet();
+            _dsRequi = _obj.ConsultaPrioridad(Application["cnn"].ToString()); // Ejecutara el metodo que muestra a todos los tipos de empleados
+            dwlPrioridad.DataSource = _dsRequi; // Asigna valores de la consulta
+            dwlPrioridad.DataMember = "prioridad"; // Alias que se utilizo en la clase
+            dwlPrioridad.DataValueField = "id"; // Toma la propiedad de value
+            dwlPrioridad.DataTextField = "prioridad"; // Se visualiza y lo toma ITEM
+            dwlPrioridad.DataBind(); // Permite que se vean los datos en el control y en la pagina web
+
+            // Inserta un nuevo valor que no viene de la base de datos
         }
 
         protected void dwlProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -269,7 +286,7 @@ namespace wsCompras_Hgo.DG
         {
             int ult_folio = 0;
             if (dwlProyecto.SelectedIndex < 1 || dwlArea.SelectedIndex < 1 || dwlCuenta.SelectedIndex < 1 ||
-                txtFecha.Text.Equals(string.Empty) || txtPresupuesto.Text.Equals(string.Empty))
+                txtFecha.Text.Equals(string.Empty) || txtPresupuesto.Text.Equals(string.Empty) || txtObservaciones.Text.Equals(string.Empty))
             {
                 // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Faltan datos');", true);
                 Response.Write("<script>alert('Faltan datos');</script>");
@@ -297,7 +314,7 @@ namespace wsCompras_Hgo.DG
                     /*_dsInicio = new DataSet();
                     _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
                     string query = "CALL guardarRequi(" + Session["idUsuario"].ToString() + ", " + dwlProyecto.SelectedValue + ", " + dwlArea.SelectedValue +
-                        ", " + dwlCuenta.SelectedValue + ", '" + txtFecha.Text + "', " + txtPresupuesto.Text + ", " + txtCosto.Text +
+                        ", " + dwlCuenta.SelectedValue + ", '" + txtFecha.Text + "', " + txtPresupuesto.Text + ", " + txtCosto.Text + ", " + dwlPrioridad.SelectedValue +
                         ", " + caus.ToString() + ", '" + obser + "');";
 
 
@@ -322,6 +339,7 @@ namespace wsCompras_Hgo.DG
                             ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No se pudo registrar');", true);
                         }
                     }
+
                     rdr.Close();
 
                     try

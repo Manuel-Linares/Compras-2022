@@ -25,8 +25,19 @@ namespace wsCompras_Hgo.RRMM
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            string odc = "";
+            switch (int.Parse(Session["plaza"].ToString()))
+            {
+                case 7:
+                    odc = "formatorequi";
+                    break;
+                case 15:
+                    odc = "formatoVer";
+                    break;
+            }
+
             lblMensaje.Visible = false;
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('https://controlsit.mx/comprasv2/formatorequi/odcexentoiva.php?id=" + dwlODC.SelectedItem + "','_blank');", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('https://controlsit.mx/comprasv2/" + odc + "/odcexentoiva.php?id=" + dwlODC.SelectedItem + "','_blank');", true);
         }
 
         public void LlenarODC()

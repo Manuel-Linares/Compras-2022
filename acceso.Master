@@ -24,6 +24,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <p class="footer">Fundación Teletón México A.C. @ <%=dt.ToString()%></p>
+            
         </div>
     </form>
 </body>

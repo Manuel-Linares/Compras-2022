@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="../CSS/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/7cc3fa3660.js" crossorigin="anonymous"></script>
     <title>Sistema de Compras Hidalgo</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -47,7 +48,9 @@
             <hr />
             <li>Para Autorizar</li>
             <li>&nbsp;</li>
-            <li><a href="aspRequiDG.aspx">Dirección General</a></li>
+            <li><a href="aspRequiDG.aspx">Requisiciones</a></li>
+            <%--<li><a href="aspAutOPDG.aspx">Órdenes de pago</a></li>--%>
+
         </ul>
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

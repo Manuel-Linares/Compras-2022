@@ -33,8 +33,19 @@ namespace wsCompras_Hgo.Compras
             }
             else
             {
+                string odc = "";
+                switch (int.Parse(Session["plaza"].ToString()))
+                {
+                    case 7:
+                        odc = "formatorequi";
+                        break;
+                    case 15:
+                        odc = "formatoVer";
+                        break;
+                }
+
                 lblMensaje.Visible = false;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('https://controlsit.mx/comprasv2/formatorequi/odcautorizada_impuestos.php?id=" + dwlODC.SelectedItem + "&tipo=" + dwlTipo.SelectedValue + "&monto=" + txtMonto.Text + "&iva=" + txtIVA.Text + "','_blank');", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('https://controlsit.mx/comprasv2/" + odc + "/odcautorizada_impuestos.php?id=" + dwlODC.SelectedItem + "&tipo=" + dwlTipo.SelectedValue + "&monto=" + txtMonto.Text + "&iva=" + txtIVA.Text + "','_blank');", true);
             }
         }
 

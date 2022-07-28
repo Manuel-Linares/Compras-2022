@@ -17,7 +17,7 @@
                     <SortedAscendingHeaderStyle CssClass="sort_asc" />
                     <SortedDescendingHeaderStyle CssClass="sort_desc" />
                     <columns>
-                    <asp:HyperLinkField Text="Actualizar" DataNavigateUrlFields="id" HeaderText="id"
+                    <asp:HyperLinkField Text="Actualizar" DataNavigateUrlFields="Folio ODC" HeaderText="Folio ODC"
                     DataNavigateUrlFormatString="aspEditarODCRRMM.aspx?id={0}"
                      NavigateUrl="aspEditarRequiRRMM.aspx?id={0}"/>
                         </columns>

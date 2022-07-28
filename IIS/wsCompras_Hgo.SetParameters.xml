@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="comprasv2" />
+  <setParameter name="con-Web.config Connection String" value="server=controlsit.mx;database=controls_Compras_2020;uid=controls_control;pwd=Godinez*19;Convert Zero Datetime=True;" />
+  <setParameter name="cnnCompras-Web.config Connection String" value="Data Source=controlsit.mx;Initial Catalog=controls_Compras_2020;User id= controls_control ; Password=Godinez*19;Convert Zero Datetime=True;" />
+</parameters>

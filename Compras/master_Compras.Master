@@ -11,7 +11,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" name="FormCom" runat="server">
         <%int dt = DateTime.Now.Year;%>
 
         <table style="width: 100%;">

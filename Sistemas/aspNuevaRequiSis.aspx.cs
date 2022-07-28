@@ -11,7 +11,6 @@ namespace wsCompras_Hgo.Sistemas
 {
     public partial class Formulario_web11 : System.Web.UI.Page
     {
-
         ClsPrincipal _obj = new ClsPrincipal();
         DataSet _dsRequi;// Data set local a la pagina
         int cant1;

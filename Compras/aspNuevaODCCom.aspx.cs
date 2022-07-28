@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,7 @@ namespace wsCompras_Hgo.Compras
         string desc1, desc2, desc3, desc4, desc5, desc6, desc7, desc8, desc9, desc10;
         string uni1, uni2, uni3, uni4, uni5, uni6, uni7, uni8, uni9, uni10;
         int cant1, cant2, cant3, cant4, cant5, cant6, cant7, cant8, cant9, cant10;
+
         double prec1, prec2, prec3, prec4, prec5, prec6, prec7, prec8, prec9, prec10;
         int part1, part2, part3, part4, part5, part6, part7, part8, part9, part10;
         int req1, req2, req3, req4, req5, req6, req7, req8, req9, req10;
@@ -51,6 +53,7 @@ namespace wsCompras_Hgo.Compras
         {
             Calendar1.Visible = true;
         }
+
         public void validarDetalle()
         {
             if (txtRequi1.Text.Equals(string.Empty))
@@ -345,9 +348,14 @@ namespace wsCompras_Hgo.Compras
             // else
             // {
             MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
-            int ult_folio = 0;
+            int ult_folio = 0, banComite = 0;
             string tele = "", tama1;
             bool bandetalle = true;
+            string strCot1, strCot2, strCot3, strComite;
+            string strFilePath;
+            string strFolder;
+            string strNombre1="", strNombre2="", strNombre3="", strNombreCom="";
+            bool ban = false;
 
             try
             {
@@ -360,18 +368,95 @@ namespace wsCompras_Hgo.Compras
                     tele = txtTelefono.Text;
                 }
 
-                if (fluCotizacion1.HasFile)
+                strFolder = Server.MapPath("../ODC/Cotizacion/");
+
+                // Crea el directorio si no existe en la ubicación relativa
+                if (!Directory.Exists(strFolder))
                 {
-                    tama1 = fluCotizacion1.FileBytes.ToString();
+                    Directory.CreateDirectory(strFolder);
                 }
 
-                /*_dsInicio = new DataSet();
-                _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
-                string query = "CALL guardarODC('" + dwlProveedor.SelectedItem.Text + "', '" + txtRFC.Text + "', " + tele +
-                    ", '" + txtEmail.Text + "', '" + txtContacto.Text + "', '" + txtDomicilio.Text + "', '" + dwlConsignar.SelectedItem.Text +
-                    "', '" + dwlEntregar.SelectedItem.Text + "', '" + txtFecha.Text + "', '" + dwlCentroCostos.SelectedItem.Text + "', '" +
-                    txtCondiciones.Text + "', '" + txtObservaciones.Text + "', " + dwlArea.SelectedValue.ToString() + ", " + Session["plaza"].ToString() + ");";
+                if (oFileCot.HasFile)
+                {
+                    // Lee el nombre del archivo por subir
+                    strCot1 = oFileCot.PostedFile.FileName;
+                    strCot1 = Path.GetFileName(strCot1);
 
+                    // Nombre de archivo modificado
+                    strNombre1 = Session["plaza"].ToString() + Session["idUsuario"].ToString() + DateTime.Now.ToString("ddMMy") + "Cot1.pdf";
+                    // Guarda el archivo en la carpeta
+                    strFilePath = strFolder + strNombre1;
+
+                    oFileCot.PostedFile.SaveAs(strFilePath);
+
+                    if (oFileCot2.HasFile)
+                    {
+                        // Lee el nombre del archivo por subir
+                        strCot2 = oFileCot2.PostedFile.FileName;
+                        strCot2 = Path.GetFileName(strCot2);
+
+                        // Nombre de archivo modificado
+                        strNombre2 = Session["plaza"].ToString() + Session["idUsuario"].ToString() + DateTime.Now.ToString("ddMMy") + "Cot2.pdf";
+
+                        // Guarda el archivo en la carpeta
+                        strFilePath = strFolder + strNombre2;
+
+                        oFileCot2.PostedFile.SaveAs(strFilePath);
+
+                        if (oFileCot3.HasFile)
+                        {
+                            // Lee el nombre del archivo por subir
+                            strCot3 = oFileCot3.PostedFile.FileName;
+                            strCot3 = Path.GetFileName(strCot3);
+
+                            // Nombre de archivo modificado
+                            strNombre3 = Session["plaza"].ToString() + Session["idUsuario"].ToString() + DateTime.Now.ToString("ddMMy") + "Cot3.pdf";
+
+                            // Guarda el archivo en la carpeta
+                            strFilePath = strFolder + strNombre3;
+
+                            oFileCot3.PostedFile.SaveAs(strFilePath);
+
+                            banComite = 3;
+                        }
+                        else
+                        {
+                            banComite = 2;
+                        }
+                    }
+                    else
+                    {
+                        banComite = 1;
+                    }
+                }
+
+                if (oFileComite.HasFile)
+                {
+                    strFolder = Server.MapPath("../ODC/Comite/");
+
+                    // Lee el nombre del archivo por subir
+                    strComite = oFileComite.PostedFile.FileName;
+                    strComite = Path.GetFileName(strComite);
+
+                    // Nombre de archivo modificado
+                    strNombreCom = Session["plaza"].ToString() + Session["idUsuario"].ToString() + DateTime.Now.ToString("ddMMy") + ".pdf";
+
+                    // Guarda el archivo en la carpeta
+                    strFilePath = strFolder + strNombreCom;
+
+                    oFileComite.PostedFile.SaveAs(strFilePath);
+
+                    ban = true;
+                }
+
+                string query = "";
+
+                // MODIFICAR PROCEDIMIENTO ALMACENADO PARA ACEPTAR NOMBRES DE COTIZACIONES Y COMITE
+                query = "CALL guardarODC('" + dwlProveedor.SelectedItem.Text + "', '" + txtRFC.Text + "', " + tele +
+                   ", '" + txtEmail.Text + "', '" + txtContacto.Text + "', '" + txtDomicilio.Text + "', '" + dwlConsignar.SelectedItem.Text +
+                   "', '" + dwlEntregar.SelectedItem.Text + "', '" + txtFecha.Text + "', '" + dwlCentroCostos.SelectedItem.Text + "', '" +
+                   txtCondiciones.Text + "', '" + txtObservaciones.Text + "', " + dwlArea.SelectedValue.ToString() + ", " + Session["plaza"].ToString() + 
+                   ", '" + strNombre1 + "', '" + strNombre2 + "', '" + strNombre3 + "', '" + strNombreCom + "');";
 
                 _conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, _conn);
