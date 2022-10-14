@@ -15,6 +15,24 @@ namespace wsCompras_Hgo
     {
 
         /// <summary>
+        /// Control txtRequi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRequi;
+
+        /// <summary>
+        /// Control btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+
+        /// <summary>
         /// Control lblRequis.
         /// </summary>
         /// <remarks>
@@ -24,12 +42,12 @@ namespace wsCompras_Hgo
         protected global::System.Web.UI.WebControls.Label lblRequis;
 
         /// <summary>
-        /// Control grdPartidas.
+        /// Control grdRequi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdPartidas;
+        protected global::System.Web.UI.WebControls.GridView grdRequi;
     }
 }

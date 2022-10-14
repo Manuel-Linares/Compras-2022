@@ -170,6 +170,7 @@
     <Content Include="Compras\aspEditarPartida.aspx" />
     <Content Include="Compras\aspEditarPartPendiente.aspx" />
     <Content Include="Compras\aspEditarODCCom.aspx" />
+    <Content Include="Compras\aspODCNueva.aspx" />
     <Content Include="CSS\acceso.css" />
     <Content Include="CSS\style.css" />
     <Content Include="aspNuevaRequi.aspx" />
@@ -214,6 +215,11 @@
     <Content Include="Firmas\DG_HGO.png" />
     <Content Include="Firmas\TI_HGO.png" />
     <Content Include="aspABCProveedor.aspx" />
+    <Content Include="aspAutorizaOP.aspx" />
+    <Content Include="aspCompras.aspx" />
+    <Content Include="aspEditarCompras.aspx" />
+    <Content Include="aspEditarContra.aspx" />
+    <Content Include="aspEditarODC.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\157-1576931_plus-sign-play-button-vector-png-transparent-png.png" />
     <Content Include="Imagenes\calendario.png" />
@@ -252,7 +258,7 @@
     <Content Include="RRMM\aspEditarPartida.aspx" />
     <Content Include="RRMM\aspEditarPartPendiente.aspx" />
     <Content Include="RRMM\aspEditarRevRRMM.aspx" />
-    <Content Include="RRMM\master_RRMM.Master" />
+    <Content Include="RRMM\aspODCNueva.aspx" />
     <Content Include="Sistemas\aspInicioSistemas.aspx" />
     <Content Include="Sistemas\aspNuevaRequiSis.aspx" />
     <Content Include="Sistemas\aspEnComprasSis.aspx" />
@@ -513,12 +519,12 @@
     <Compile Include="Compras\aspEditarODCCom.aspx.designer.cs">
       <DependentUpon>aspEditarODCCom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Compras\master_Compras.Master.cs">
-      <DependentUpon>master_Compras.Master</DependentUpon>
+    <Compile Include="Compras\aspODCNueva.aspx.cs">
+      <DependentUpon>aspODCNueva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Compras\master_Compras.Master.designer.cs">
-      <DependentUpon>master_Compras.Master</DependentUpon>
+    <Compile Include="Compras\aspODCNueva.aspx.designer.cs">
+      <DependentUpon>aspODCNueva.aspx</DependentUpon>
     </Compile>
     <Compile Include="DG\aspInicioDG.aspx.cs">
       <DependentUpon>aspInicioDG.aspx</DependentUpon>
@@ -597,13 +603,6 @@
     <Compile Include="DG\aspAutOPDG.aspx.designer.cs">
       <DependentUpon>aspAutOPDG.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DG\maestra_DG.Master.cs">
-      <DependentUpon>maestra_DG.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DG\maestra_DG.Master.designer.cs">
-      <DependentUpon>maestra_DG.Master</DependentUpon>
-    </Compile>
     <Compile Include="DM\aspInicioDM.aspx.cs">
       <DependentUpon>aspInicioDM.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -674,13 +673,6 @@
     <Compile Include="DM\aspRequiDM.aspx.designer.cs">
       <DependentUpon>aspRequiDM.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DM\maestra_DM.Master.cs">
-      <DependentUpon>maestra_DM.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DM\maestra_DM.Master.designer.cs">
-      <DependentUpon>maestra_DM.Master</DependentUpon>
-    </Compile>
     <Compile Include="aspNuevoProveedor.aspx.cs">
       <DependentUpon>aspNuevoProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -744,8 +736,71 @@
     <Compile Include="aspABCProveedor.aspx.designer.cs">
       <DependentUpon>aspABCProveedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="aspAutorizaOP.aspx.cs">
+      <DependentUpon>aspAutorizaOP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspAutorizaOP.aspx.designer.cs">
+      <DependentUpon>aspAutorizaOP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspCompras.aspx.cs">
+      <DependentUpon>aspCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspCompras.aspx.designer.cs">
+      <DependentUpon>aspCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspEditarCompras.aspx.cs">
+      <DependentUpon>aspEditarCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspEditarCompras.aspx.designer.cs">
+      <DependentUpon>aspEditarCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspEditarContra.aspx.cs">
+      <DependentUpon>aspEditarContra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspEditarContra.aspx.designer.cs">
+      <DependentUpon>aspEditarContra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspEditarODC.aspx.cs">
+      <DependentUpon>aspEditarODC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspEditarODC.aspx.designer.cs">
+      <DependentUpon>aspEditarODC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_Compras.Master.cs">
+      <DependentUpon>master_Compras.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_Compras.Master.designer.cs">
+      <DependentUpon>master_Compras.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_DG.Master.cs">
+      <DependentUpon>master_DG.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_DG.Master.designer.cs">
+      <DependentUpon>master_DG.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_DM.Master.cs">
+      <DependentUpon>master_DM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_DM.Master.designer.cs">
+      <DependentUpon>master_DM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_Sistemas.Master.cs">
+      <DependentUpon>master_Sistemas.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_Sistemas.Master.designer.cs">
+      <DependentUpon>master_Sistemas.Master</DependentUpon>
     </Compile>
     <Compile Include="master_Principal.Master.cs">
       <DependentUpon>master_Principal.Master</DependentUpon>
@@ -753,6 +808,20 @@
     </Compile>
     <Compile Include="master_Principal.Master.designer.cs">
       <DependentUpon>master_Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_RRMM.Master.cs">
+      <DependentUpon>master_RRMM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_RRMM.Master.designer.cs">
+      <DependentUpon>master_RRMM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\master_Usuario.Master.cs">
+      <DependentUpon>master_Usuario.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\master_Usuario.Master.designer.cs">
+      <DependentUpon>master_Usuario.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -949,12 +1018,12 @@
     <Compile Include="RRMM\aspEditarRevRRMM.aspx.designer.cs">
       <DependentUpon>aspEditarRevRRMM.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RRMM\master_RRMM.Master.cs">
-      <DependentUpon>master_RRMM.Master</DependentUpon>
+    <Compile Include="RRMM\aspODCNueva.aspx.cs">
+      <DependentUpon>aspODCNueva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RRMM\master_RRMM.Master.designer.cs">
-      <DependentUpon>master_RRMM.Master</DependentUpon>
+    <Compile Include="RRMM\aspODCNueva.aspx.designer.cs">
+      <DependentUpon>aspODCNueva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sistemas\aspInicioSistemas.aspx.cs">
       <DependentUpon>aspInicioSistemas.aspx</DependentUpon>
@@ -1019,13 +1088,6 @@
     <Compile Include="Sistemas\aspOrdenDePago.aspx.designer.cs">
       <DependentUpon>aspOrdenDePago.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sistemas\maestra_Sistemas.Master.cs">
-      <DependentUpon>maestra_Sistemas.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Sistemas\maestra_Sistemas.Master.designer.cs">
-      <DependentUpon>maestra_Sistemas.Master</DependentUpon>
-    </Compile>
     <Compile Include="Usuario\aspInicioUsu.aspx.cs">
       <DependentUpon>aspInicioUsu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1089,21 +1151,17 @@
     <Compile Include="Usuario\aspEditarContra.aspx.designer.cs">
       <DependentUpon>aspEditarContra.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\master_Usuario.Master.cs">
-      <DependentUpon>master_Usuario.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Usuario\master_Usuario.Master.designer.cs">
-      <DependentUpon>master_Usuario.Master</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="master_Principal.Master" />
     <Content Include="acceso.Master" />
-    <Content Include="DM\maestra_DM.Master" />
-    <Content Include="DG\maestra_DG.Master" />
-    <Content Include="Compras\master_Compras.Master" />
     <Content Include=".editorconfig" />
+    <Content Include="Master\master_DG.Master" />
+    <Content Include="Master\master_DM.Master" />
+    <Content Include="Master\master_RRMM.Master" />
+    <Content Include="Master\master_Sistemas.Master" />
+    <Content Include="Master\master_Usuario.Master" />
+    <Content Include="master_Principal.Master" />
+    <Content Include="Master\master_Compras.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Controlsit.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
@@ -1112,8 +1170,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Usuario\master_Usuario.Master" />
-    <Content Include="Sistemas\maestra_Sistemas.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

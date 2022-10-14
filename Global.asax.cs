@@ -27,6 +27,8 @@ namespace wsCompras_Hgo
             Session["subarea"] = 0;
             Session["puesto"] = 0;
             Session.Timeout = 1200;
+
+            Session["master"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

@@ -127,7 +127,7 @@ namespace wsCompras_Hgo
                             {
                                 Session["puesto"] = 0;
                             }
-                            
+
                             break;
                     }
                 }
@@ -135,28 +135,46 @@ namespace wsCompras_Hgo
                 switch (Session["userlevel"])
                 {
                     case -1:
-                        Response.Redirect("~/aspIndex.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Principal.Master";
+
+                        // Response.Redirect("~/aspIndex.aspx?msg=0");
                         break;
                     case 10:
-                        Response.Redirect("~/Usuario/aspInicioUsu.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Usuario.Master";
+
+                        // Response.Redirect("~/Usuario/aspInicioUsu.aspx?msg=0");
                         break;
                     case 12:
-                        Response.Redirect("~/DM/aspInicioDM.aspx?msg=0");
+                        Session["master"] = "~/Master/master_DM.Master";
+
+                        // Response.Redirect("~/DM/aspInicioDM.aspx?msg=0");
                         break;
                     case 13:
-                        Response.Redirect("~/DG/aspInicioDG.aspx?msg=0");
+                        Session["master"] = "~/Master/master_DG.Master";
+
+                        // Response.Redirect("~/DG/aspInicioDG.aspx?msg=0");
                         break;
                     case 15:
-                        Response.Redirect("~/RRMM/aspInicioRRMM.aspx?msg=0");
+                        Session["master"] = "~/Master/master_RRMM.Master";
+
+                        // Response.Redirect("~/RRMM/aspInicioRRMM.aspx?msg=0");
                         break;
                     case 16:
-                        Response.Redirect("~/Sistemas/aspInicioSistemas.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Sistemas.Master";
+
+                        // Response.Redirect("~/Sistemas/aspInicioSistemas.aspx?msg=0");
                         break;
                     case 17:
-                        Response.Redirect("~/Compras/aspInicioCompras.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Compras.Master";
+
+                        // Response.Redirect("~/Compras/aspInicioCompras.aspx?msg=0");
+                        break;
+                    default:
+                        Session["master"] = "~/Master/master_Principal.Master";
                         break;
                 }
 
+                Response.Redirect("~/aspIndex.aspx?msg=0");
             }
             else
             {

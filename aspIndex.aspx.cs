@@ -28,6 +28,11 @@ namespace wsCompras_Hgo
             }
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+                MasterPageFile = Session["master"].ToString();
+        }
+
         public void cargaValores(string query, Label label)
         {
             MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());

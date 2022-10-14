@@ -450,7 +450,7 @@ namespace wsCompras_Hgo.RRMM
 
                 string query = "";
 
-                // MODIFICAR PROCEDIMIENTO ALMACENADO PARA ACEPTAR NOMBRES DE COTIZACIONES Y COMITE
+                // MODIFICAR PROCEDIMIENTO ALMACENADO PARA ACEPTAR''p NOMBRES DE COTIZACIONES Y COMITE
                 query = "CALL guardarODC('" + dwlProveedor.SelectedItem.Text + "', '" + txtRFC.Text + "', " + tele +
                    ", '" + txtEmail.Text + "', '" + txtContacto.Text + "', '" + txtDomicilio.Text + "', '" + dwlConsignar.SelectedItem.Text +
                    "', '" + dwlEntregar.SelectedItem.Text + "', '" + txtFecha.Text + "', '" + dwlCentroCostos.SelectedItem.Text + "', '" +
@@ -463,7 +463,7 @@ namespace wsCompras_Hgo.RRMM
 
                 while (rdr.Read())
                 {
-                    if (rdr[0].ToString() != "-1")
+                    if (rdr[0].ToString() == "1")
                     {
                         // Inserción exitosa
                         // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
@@ -475,7 +475,7 @@ namespace wsCompras_Hgo.RRMM
                     else
                     {
                         // Error
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No se pudo registrar');", true);
+                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No se pudo registrar " + rdr[0].ToString() + "');", true);
                     }
                 }
 
