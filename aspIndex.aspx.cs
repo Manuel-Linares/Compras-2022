@@ -25,7 +25,16 @@ namespace wsCompras_Hgo
                 {
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro editado correctamente');", true);
                 }
+                else if (Request.QueryString["msg"].Equals("3"))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro eliminado correctamente');", true);
+                }
             }
+        }
+
+        void Page_PreInit(object sender, EventArgs e)
+        {
+                MasterPageFile = Session["master"].ToString();
         }
 
         public void cargaValores(string query, Label label)

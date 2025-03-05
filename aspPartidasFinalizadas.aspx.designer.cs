@@ -24,12 +24,12 @@ namespace wsCompras_Hgo
         protected global::System.Web.UI.WebControls.Label lblRequis;
 
         /// <summary>
-        /// Control grdPartidas.
+        /// Control grdRequi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdPartidas;
+        protected global::System.Web.UI.WebControls.GridView grdRequi;
     }
 }

@@ -1,5 +1,6 @@
 ﻿// CRIT Hidalgo. Fundación Teletón México A.C.
 
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,10 +25,39 @@ namespace wsCompras_Hgo
             }
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
+        public void cargaValores(string query, Label label)
+        {
+            MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
+            try
+            {
+                _conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, _conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    label.Text = "Total de Requisiciones: "+rdr[0].ToString();
+                }
+
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD');", true);
+            }
+
+            _conn.Close();
+        }
+
         private DataTable BindGridView()
         {
             ds = new DataSet();
-            ds = obj.listarRequis(Application["cnn"].ToString());
+            ds = obj.listarRequis(Application["cnn"].ToString(), int.Parse(Session["idUsuario"].ToString()), int.Parse(Session["puesto"].ToString()), int.Parse(Session["area"].ToString()), int.Parse(Session["plaza"].ToString()));
             return ds.Tables[0];
         }
 
@@ -41,13 +71,172 @@ namespace wsCompras_Hgo
             grdRequi.DataBind();
             foreach (GridViewRow gr in grdRequi.Rows)
             {
-                cont++;
+                HyperLink hp = new HyperLink();
+                switch (Session["plaza"].ToString())
+                {
+                    case "1":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoEdoMex/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "2":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOCC/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "3":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOax/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "4":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoAgs/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "5":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCoa/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "6":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGto/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "7":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatorequi/requiborrador.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "8":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChh/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "9":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChp/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "10":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoQroo/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "11":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoNeza/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "12":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoYuc/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "13":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoTam/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "14":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoDur/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "15":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoVer/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "16":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoSon/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "17":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBCS/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "18":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoPue/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "19":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCDMX/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "20":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGro/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "21":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoMich/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                    case "22":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBC/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        cont++;
+                        break;
+                }
             }
 
             if (cont > 0)
             {
                 lblRequis.Visible = true;
-                lblRequis.Text = "No. de requisiciones: " + cont;
+                cargaValores("select count(*) as Total from(((((`requi` `re` join `area` `a`) join `cuentas` `c`) join `prioridad` `p`) join `usuarios` `u`) join `plaza` `pl`) where((`p`.`id` = `re`.`prioridad`) and(`a`.`id` = `re`.`area`) and(`c`.`id` = `re`.`cuenta`) and(`u`.`id` = `re`.`userid`) and(`u`.`plaza` = `pl`.`plaza`) and(`u`.`id` = " + Session["idUsuario"].ToString() + ") ) ORDER BY re.FOLIO DESC;", lblRequis);
+
+                // lblRequis.Text = "No. de requisiciones: " + cont;
             }
             else
             {
@@ -77,6 +266,145 @@ namespace wsCompras_Hgo
             Session["SortedView"] = sortedView;
             grdRequi.DataSource = sortedView;
             grdRequi.DataBind();
+            foreach (GridViewRow gr in grdRequi.Rows)
+            {
+                HyperLink hp = new HyperLink();
+                switch (Session["plaza"].ToString())
+                {
+                    case "1":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoEdoMex/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "2":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOCC/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "3":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOax/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "4":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoAgs/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "5":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCoa/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "6":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGto/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "7":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatorequi/requiborrador.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "8":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChh/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "9":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChp/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "10":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoQroo/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "11":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoNeza/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "12":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoYuc/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "13":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoTam/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "14":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoDur/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "15":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoVer/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "16":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoSon/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "17":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBCS/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "18":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoPue/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "19":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCDMX/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "20":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGro/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "21":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoMich/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                    case "22":
+                        hp.Text = gr.Cells[0].Text;
+                        hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBC/requiformato.php?folio=" + hp.Text;
+                        hp.Target = "_blank";
+                        gr.Cells[0].Controls.Add(hp);
+                        break;
+                }
+            }
         }
 
         protected void grdRequi_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -86,11 +414,289 @@ namespace wsCompras_Hgo
             {
                 grdRequi.DataSource = Session["SortedView"];
                 grdRequi.DataBind();
+                foreach (GridViewRow gr in grdRequi.Rows)
+                {
+                    HyperLink hp = new HyperLink();
+                    switch (Session["plaza"].ToString())
+                    {
+                        case "1":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoEdoMex/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "2":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOCC/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "3":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOax/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "4":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoAgs/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "5":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCoa/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "6":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGto/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "7":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatorequi/requiborrador.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "8":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChh/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "9":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChp/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "10":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoQroo/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "11":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoNeza/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "12":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoYuc/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "13":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoTam/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "14":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoDur/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "15":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoVer/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "16":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoSon/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "17":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBCS/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "18":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoPue/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "19":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCDMX/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "20":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGro/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "21":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoMich/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "22":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBC/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                    }
+                }
             }
             else
             {
                 grdRequi.DataSource = BindGridView();
                 grdRequi.DataBind();
+                foreach (GridViewRow gr in grdRequi.Rows)
+                {
+                    HyperLink hp = new HyperLink();
+                    switch (Session["plaza"].ToString())
+                    {
+                        case "1":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoEdoMex/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "2":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOCC/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "3":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoOax/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "4":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoAgs/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "5":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCoa/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "6":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGto/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "7":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatorequi/requiborrador.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "8":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChh/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "9":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoChp/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "10":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoQroo/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "11":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoNeza/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "12":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoYuc/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "13":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoTam/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "14":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoDur/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "15":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoVer/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "16":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoSon/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "17":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBCS/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "18":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoPue/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "19":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoCDMX/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "20":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoGro/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "21":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoMich/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                        case "22":
+                            hp.Text = gr.Cells[0].Text;
+                            hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatoBC/requiformato.php?folio=" + hp.Text;
+                            hp.Target = "_blank";
+                            gr.Cells[0].Controls.Add(hp);
+                            break;
+                    }
+                }
             }
         }
 

@@ -50,6 +50,8 @@ namespace wsCompras_Hgo
             if (!IsPostBack)
             {
                 LlenarProyecto();
+                LlenarPrioridad();
+                dwlPrioridad.SelectedIndex = 1;
                 LlenarUnidad(dwlUnidad1);
                 LlenarUnidad(dwlUnidad2);
                 LlenarUnidad(dwlUnidad3);
@@ -61,6 +63,11 @@ namespace wsCompras_Hgo
                 LlenarUnidad(dwlUnidad9);
                 LlenarUnidad(dwlUnidad10);
             }
+        }
+
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
         }
 
         public void LlenarProyecto()
@@ -116,6 +123,20 @@ namespace wsCompras_Hgo
             dwl.DataBind();// Permite que se vean los datos en el control y en la pagina web
             // Inserta un nuevo valor que no viene de la base de datos 
             dwl.Items.Insert(0, "--Unidad--");
+        }
+
+        public void LlenarPrioridad()
+        {
+            // Limpia los datos del data set para reinciarlo
+            _dsRequi = new DataSet();
+            _dsRequi = _obj.ConsultaPrioridad(Application["cnn"].ToString()); // Ejecutara el metodo que muestra a todos los tipos de empleados
+            dwlPrioridad.DataSource = _dsRequi; // Asigna valores de la consulta
+            dwlPrioridad.DataMember = "prioridad"; // Alias que se utilizo en la clase
+            dwlPrioridad.DataValueField = "id"; // Toma la propiedad de value
+            dwlPrioridad.DataTextField = "prioridad"; // Se visualiza y lo toma ITEM
+            dwlPrioridad.DataBind(); // Permite que se vean los datos en el control y en la pagina web
+
+            // Inserta un nuevo valor que no viene de la base de datos
         }
 
         protected void dwlProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -271,9 +292,10 @@ namespace wsCompras_Hgo
         {
             int ult_folio = 0;
             if (dwlProyecto.SelectedIndex < 1 || dwlArea.SelectedIndex < 1 || dwlCuenta.SelectedIndex < 1 ||
-                txtFecha.Text.Equals(string.Empty) || txtPresupuesto.Text.Equals(string.Empty))
+                txtFecha.Text.Equals(string.Empty) || txtPresupuesto.Text.Equals(string.Empty) || txtObservaciones.Text.Equals(string.Empty))
             {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Faltan datos');", true);
+                // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Faltan datos');", true);
+                Response.Write("<script>alert('Faltan datos');</script>");
             }
             else
             {
@@ -298,7 +320,7 @@ namespace wsCompras_Hgo
                     /*_dsInicio = new DataSet();
                     _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
                     string query = "CALL guardarRequi(" + Session["idUsuario"].ToString() + ", " + dwlProyecto.SelectedValue + ", " + dwlArea.SelectedValue +
-                        ", " + dwlCuenta.SelectedValue + ", '" + txtFecha.Text + "', " + txtPresupuesto.Text + ", " + txtCosto.Text +
+                        ", " + dwlCuenta.SelectedValue + ", '" + txtFecha.Text + "', " + txtPresupuesto.Text + ", " + txtCosto.Text + ", " + dwlPrioridad.SelectedValue +
                         ", " + caus.ToString() + ", '" + obser + "');";
 
 
@@ -311,9 +333,9 @@ namespace wsCompras_Hgo
                         if (rdr[0].ToString() != "-1")
                         {
                             // Inserción exitosa
-                            ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
+                            // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
 
-                            //Inserción detalles
+                            // Inserción detalles
                             ult_folio = int.Parse(rdr[1].ToString());
                             bandetalle = true;
                         }
@@ -416,16 +438,20 @@ namespace wsCompras_Hgo
                     catch (Exception ex)
                     {
                         ex.ToString();
-                        ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD, detalles');", true);
+                        //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD, detalles');", true);
+                        Response.Write("<script>alert('Error en BD; detalles');</script>");
                     }
                 }
                 catch (Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD');", true);
+                    //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD');", true);
+                    Response.Write("<script>alert('Error en BD');</script>");
                 }
 
                 _conn.Close();
-                Response.Redirect("aspIndex.aspx");
+
+                // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
+                Response.Redirect("aspIndex.aspx?msg=1");
             }
         }
 

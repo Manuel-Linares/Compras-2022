@@ -13,7 +13,6 @@ namespace wsCompras_Hgo
     {
         ClsPrincipal _obj = new ClsPrincipal();
         DataSet _dsInicio;// Data set local a la pagina
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,8 +32,8 @@ namespace wsCompras_Hgo
             bool ban = false;
             string[] arreglo = new string[8];
             int i = 0;
-            try
-            {
+            /*try
+            {*/
                 /*_dsInicio = new DataSet();
                 _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
                 string query = "CALL acceder('" + txtUsuario.Text + "', '" + txtContra.Text + "');";
@@ -68,13 +67,13 @@ namespace wsCompras_Hgo
                         arreglo[7] = rdr[7].ToString();
                     }
                 }
-
                 rdr.Close();
-            }
-            catch (Exception ex)
+            //}
+            /*catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD'" + ex.ToString() + ");", true);
-            }
+            }*/
 
             _conn.Close();
 
@@ -126,7 +125,7 @@ namespace wsCompras_Hgo
                             {
                                 Session["puesto"] = 0;
                             }
-                            
+
                             break;
                     }
                 }
@@ -134,28 +133,46 @@ namespace wsCompras_Hgo
                 switch (Session["userlevel"])
                 {
                     case -1:
-                        Response.Redirect("~/aspIndex.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Principal.Master";
+
+                        // Response.Redirect("~/aspIndex.aspx?msg=0");
                         break;
                     case 10:
-                        Response.Redirect("~/Usuario/aspInicioUsu.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Usuario.Master";
+
+                        // Response.Redirect("~/Usuario/aspInicioUsu.aspx?msg=0");
                         break;
                     case 12:
-                        Response.Redirect("~/DM/aspInicioDM.aspx?msg=0");
+                        Session["master"] = "~/Master/master_DM.Master";
+
+                        // Response.Redirect("~/DM/aspInicioDM.aspx?msg=0");
                         break;
                     case 13:
-                        Response.Redirect("~/DG/aspInicioDG.aspx?msg=0");
+                        Session["master"] = "~/Master/master_DG.Master";
+
+                        // Response.Redirect("~/DG/aspInicioDG.aspx?msg=0");
                         break;
                     case 15:
-                        Response.Redirect("~/RRMM/aspInicioRRMM.aspx?msg=0");
+                        Session["master"] = "~/Master/master_RRMM.Master";
+
+                        // Response.Redirect("~/RRMM/aspInicioRRMM.aspx?msg=0");
                         break;
                     case 16:
-                        Response.Redirect("~/Sistemas/aspInicioSistemas.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Sistemas.Master";
+
+                        // Response.Redirect("~/Sistemas/aspInicioSistemas.aspx?msg=0");
                         break;
                     case 17:
-                        Response.Redirect("~/Compras/aspInicioCompras.aspx?msg=0");
+                        Session["master"] = "~/Master/master_Compras.Master";
+
+                        // Response.Redirect("~/Compras/aspInicioCompras.aspx?msg=0");
+                        break;
+                    default:
+                        Session["master"] = "~/Master/master_Principal.Master";
                         break;
                 }
 
+                Response.Redirect("~/aspIndex.aspx?msg=0");
             }
             else
             {

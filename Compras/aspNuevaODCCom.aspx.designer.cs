@@ -150,58 +150,40 @@ namespace wsCompras_Hgo.Compras
         protected global::System.Web.UI.WebControls.TextBox txtCondiciones;
 
         /// <summary>
-        /// Control fluCotizacion1.
+        /// Control oFileCot.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fluCotizacion1;
+        protected global::System.Web.UI.WebControls.FileUpload oFileCot;
 
         /// <summary>
-        /// Control fluCotizacion2.
+        /// Control oFileCot2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fluCotizacion2;
+        protected global::System.Web.UI.WebControls.FileUpload oFileCot2;
 
         /// <summary>
-        /// Control fluCotizacion3.
+        /// Control oFileCot3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fluCotizacion3;
+        protected global::System.Web.UI.WebControls.FileUpload oFileCot3;
 
         /// <summary>
-        /// Control rbtRadio1.
+        /// Control oFileComite.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtRadio1;
-
-        /// <summary>
-        /// Control rbtRadio2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtRadio2;
-
-        /// <summary>
-        /// Control fluComite.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fluComite;
+        protected global::System.Web.UI.WebControls.FileUpload oFileComite;
 
         /// <summary>
         /// Control txtObservaciones.

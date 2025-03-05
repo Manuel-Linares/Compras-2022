@@ -19,7 +19,7 @@
                     <columns>
                     <asp:HyperLinkField Text="Actualizar" DataNavigateUrlFields="id" HeaderText="id"
                     DataNavigateUrlFormatString="aspEditarODCRRMM.aspx?id={0}"
-                     NavigateUrl="aspEditarRequiRRMM.aspx?id={0}"/>
+                     NavigateUrl="aspEditarODCRRMM.aspx?id={0}"/>
                         </columns>
                 </asp:GridView>
             </td>

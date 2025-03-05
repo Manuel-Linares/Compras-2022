@@ -27,6 +27,11 @@ namespace wsCompras_Hgo
             stamper.Close();
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -50,7 +55,7 @@ namespace wsCompras_Hgo
             using (Stream inputImageStream = new FileStream(Server.MapPath("~\\Firmas\\TI_HGO.png"), FileMode.Open, FileAccess.Read, FileShare.Read))
             using (Stream outputPdfStream = new FileStream(Server.MapPath("~\\ODP\\OP_Telmex_Abril_Firmado.pdf"), FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                firmar(inputPdfStream, inputImageStream, outputPdfStream, 100);
+                firmar(inputPdfStream, inputImageStream, outputPdfStream, 200);
             }
 
             File.Delete(Server.MapPath("~\\ODP\\pdf_temp.pdf"));

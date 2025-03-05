@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DG/maestra_DG.Master" AutoEventWireup="true" CodeBehind="aspNuevaRequiDG.aspx.cs" Inherits="wsCompras_Hgo.DG.Formulario_web12" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../Master/master_DG.Master" AutoEventWireup="true" CodeBehind="aspNuevaRequiDG.aspx.cs" Inherits="wsCompras_Hgo.DG.Formulario_web12" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -40,13 +40,18 @@
             <td colspan="3" style="text-align:left">
                 <asp:TextBox ID="txtCosto" runat="server" Width="50%" TextMode="Number"></asp:TextBox></td>
         </tr>
+       <tr>
+            <td colspan="2" style="font-family:Arial; width:20%">Prioridad:<span style="color:red">*</span></td>
+            <td colspan="3" style="text-align:left">
+                <asp:DropDownList ID="dwlPrioridad" AutoPostBack="true" runat="server" Width="50%"></asp:DropDownList></td>
+        </tr>
         <tr>
             <td colspan="2" style="font-family:Arial; width:20%">CAUS origen: </td>
             <td colspan="3" style="text-align:left">
                 <asp:TextBox ID="txtCAUS" runat="server" Width="50%"></asp:TextBox></td>
         </tr>
         <tr>
-            <td colspan="2" style="font-family:Arial; width:20%">Observaciones: </td>
+            <td colspan="2" style="font-family:Arial; width:20%">Observaciones:<span style="color:red">*</span></td>
             <td colspan="3" style="text-align:left">
                 <asp:TextBox ID="txtObservaciones" runat="server" Width="50%" TextMode="MultiLine"></asp:TextBox></td>
         </tr>

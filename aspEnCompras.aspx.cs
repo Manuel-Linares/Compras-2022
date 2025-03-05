@@ -21,6 +21,11 @@ namespace wsCompras_Hgo
             }
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
         void requisiciones()
         {
             int cont = 0;
