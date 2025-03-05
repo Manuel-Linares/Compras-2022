@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width:100%;" id="main">
+   <table style="width:100%;" id="main">
         <tr>
             <th colspan="5" style="text-align:left;"><h1>Orden de Compra RRMM: Autorizar</h1></th>
         </tr>

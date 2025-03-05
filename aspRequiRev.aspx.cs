@@ -21,6 +21,12 @@ namespace wsCompras_Hgo
             }
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
+
         private DataTable BindGridView()
         {
             ds = new DataSet();

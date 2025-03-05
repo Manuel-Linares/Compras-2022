@@ -82,13 +82,13 @@ namespace wsCompras_Hgo
             if (dt.Rows.Count > 0)
             {
                 lblFolio.Text = dt.Rows[0]["FOLIO"].ToString();
-                lblFechaCreacion.Text = dt.Rows[0]["Fecha de Creación"].ToString();
-                lblFechaAutorizacion.Text = dt.Rows[0]["Fecha Autorización"].ToString();
+                lblFechaCreacion.Text = dt.Rows[0]["Fecha de Creacion"].ToString();
+                lblFechaAutorizacion.Text = dt.Rows[0]["Fecha Autorizacion"].ToString();
                 lblFechaNecesidad.Text = dt.Rows[0]["Fecha Necesidad"].ToString();
-                lblArea.Text = dt.Rows[0]["Área"].ToString();
+                lblArea.Text = dt.Rows[0]["Area"].ToString();
                 lblUsuario.Text = dt.Rows[0]["Usuario"].ToString();
                 lblObservaciones.Text = dt.Rows[0]["Observaciones"].ToString();
-                lblObserDireccion.Text = dt.Rows[0]["Observaciones Dirección"].ToString();
+                lblObserDireccion.Text = dt.Rows[0]["Observaciones Direccion"].ToString();
                 lblObserRM.Text = dt.Rows[0]["Observaciones"].ToString();
                 lblPrioridad.Text = dt.Rows[0]["Prioridad"].ToString();
             }

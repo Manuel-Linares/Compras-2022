@@ -34,22 +34,22 @@
         </table>
         <ul class="sidenav">
             <hr />
-            <li><a href="aspInicioDG.aspx?msg=0">Inicio</a></li>
+            <li><a href="aspIndex.aspx?msg=0">Inicio</a></li>
             <hr />
             <li>Requisición</li>
             <li>&nbsp;</li>
-            <li><a href="aspNuevaRequiDG.aspx">Nueva Requisición</a></li>
-            <li><a href="aspEnComprasDG.aspx">En Compras</a></li>
-            <li><a href="aspRequiReembolsoDG.aspx">Reembolso / Servicio</a></li>
-            <li><a href="aspRequiRevDG.aspx">Para Revisión</a></li>
-            <li><a href="aspRequiNoAutDG.aspx">No Autorizadas</a></li>
-            <li><a href="aspRequiFinalizadaDG.aspx">Finalizadas</a></li>
-            <li><a href="aspTodasRequisDG.aspx">Todas</a></li>
+            <li><a href="aspNuevaRequi.aspx">Nueva Requisición</a></li>
+            <li><a href="aspEnCompras.aspx">En Compras</a></li>
+            <li><a href="aspRequiReembolso.aspx">Reembolso / Servicio</a></li>
+            <li><a href="aspRequiRev.aspx">Para Revisión</a></li>
+            <li><a href="aspRequiNoAut.aspx">No Autorizadas</a></li>
+            <li><a href="aspRequiFinalizada.aspx">Finalizadas</a></li>
+            <li><a href="aspTodasRequis.aspx">Todas</a></li>
             <hr />
             <li>Para Autorizar</li>
             <li>&nbsp;</li>
             <li><a href="aspRequiDG.aspx">Requisiciones</a></li>
-            <li><a href="aspAutorizaOP.aspx">Órdenes de pago</a></li>
+            <%--<li><a href="aspAutorizaOP.aspx">Órdenes de pago</a></li>--%>
 
         </ul>
         <div class="content">

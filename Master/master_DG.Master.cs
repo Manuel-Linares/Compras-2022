@@ -20,7 +20,7 @@ namespace wsCompras_Hgo.DG
 
             if (Session["idUsuario"].Equals(0))
             {
-                Response.Redirect("../aspInicio.aspx?ses=2");
+                Response.Redirect("aspInicio.aspx?ses=2");
             }
         }
 
@@ -52,7 +52,7 @@ namespace wsCompras_Hgo.DG
             Session["userlevel"] = 0;
             Session["area"] = 0;
             Session["subarea"] = 0;
-            Response.Redirect("../aspInicio.aspx?ses=1");
+            Response.Redirect("aspInicio.aspx?ses=1");
         }
     }
 }

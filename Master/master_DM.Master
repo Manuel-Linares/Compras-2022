@@ -33,17 +33,17 @@
         </table>
         <ul class="sidenav">
             <hr />
-            <li><a href="aspInicioDM.aspx?msg=0">Inicio</a></li>
+            <li><a href="aspIndex.aspx?msg=0">Inicio</a></li>
             <hr />
             <li>Requisición</li>
             <li>&nbsp;</li>
-            <li><a href="aspNuevaRequiDM.aspx">Nueva Requisición</a></li>
-            <li><a href="aspEnComprasDM.aspx">En Compras</a></li>
-            <li><a href="aspRequiReembolsoDM.aspx">Reembolso / Servicio</a></li>
-            <li><a href="aspRequiRevDM.aspx">Para Revisión</a></li>
-            <li><a href="aspRequiNoAutDM.aspx">No Autorizadas</a></li>
-            <li><a href="aspRequiFinalizadaDM.aspx">Finalizadas</a></li>
-            <li><a href="aspTodasRequisDM.aspx">Todas</a></li>
+            <li><a href="aspNuevaRequi.aspx">Nueva Requisición</a></li>
+            <li><a href="aspEnCompras.aspx">En Compras</a></li>
+            <li><a href="aspRequiReembolso.aspx">Reembolso / Servicio</a></li>
+            <li><a href="aspRequiRev.aspx">Para Revisión</a></li>
+            <li><a href="aspRequiNoAut.aspx">No Autorizadas</a></li>
+            <li><a href="aspRequiFinalizada.aspx">Finalizadas</a></li>
+            <li><a href="aspTodasRequis.aspx">Todas</a></li>
             <hr />
             <li>Para Autorizar</li>
             <li>&nbsp;</li>

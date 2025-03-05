@@ -52,7 +52,7 @@ namespace wsCompras_Hgo.Compras
             Session["userlevel"] = 0;
             Session["area"] = 0;
             Session["subarea"] = 0;
-            Response.Redirect("../aspInicio.aspx?ses=1");
+            Response.Redirect("aspInicio.aspx?ses=1");
         }
     }
 }

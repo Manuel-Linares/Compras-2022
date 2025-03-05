@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="acceso.master.cs" Inherits="wsCompras_Hgo.acceso" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="acceso.Master.cs" Inherits="wsCompras_Hgo.acceso" %>
 
 <!DOCTYPE html>
 

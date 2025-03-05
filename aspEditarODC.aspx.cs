@@ -92,7 +92,7 @@ namespace wsCompras_Hgo
                 lblContacto.Text = dt.Rows[0]["CONTACTO"].ToString();
                 lblConsignar.Text = dt.Rows[0]["CONSIGNAR A"].ToString();
                 lblFechaEmbarque.Text = dt.Rows[0]["FECHA EMBARQUE"].ToString();
-                lblArea.Text = dt.Rows[0]["ÁREA"].ToString();
+                lblArea.Text = dt.Rows[0]["AREA"].ToString();
                 lblCentroCostos.Text = dt.Rows[0]["CENTRO DE COSTOS"].ToString();
                 lblObservaciones.Text = dt.Rows[0]["OBSERVACIONES"].ToString();
             }
@@ -126,7 +126,7 @@ namespace wsCompras_Hgo
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("aspODC.aspx");
+            Response.Redirect("aspODCRevision.aspx");
         }
     }
 }

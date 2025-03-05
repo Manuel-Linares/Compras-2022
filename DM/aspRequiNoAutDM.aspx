@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DM/maestra_DM.Master" AutoEventWireup="true" CodeBehind="aspRequiNoAutDM.aspx.cs" Inherits="wsCompras_Hgo.DM.Formulario_web15" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../Master/master_DM.Master" AutoEventWireup="true" CodeBehind="aspRequiNoAutDM.aspx.cs" Inherits="wsCompras_Hgo.DM.Formulario_web15" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

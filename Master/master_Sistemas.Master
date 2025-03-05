@@ -33,21 +33,25 @@
         </table>
         <ul class="sidenav">
             <hr />
-            <li><a href="aspInicioSistemas.aspx?msg=0">Inicio</a></li>
+            <li><a href="aspIndex.aspx?msg=0">Inicio</a></li>
             <hr />
             <li>Requisición</li>
             <li>&nbsp;</li>
-            <li><a href="aspNuevaRequiSis.aspx">Nueva Requisición</a></li>
-            <li><a href="aspEnComprasSis.aspx">En Compras</a></li>
+            <li><a href="aspNuevaRequi.aspx">Nueva Requisición</a></li>
+            <li><a href="aspEnCompras.aspx">En Compras</a></li>
             <li><a href="aspRequiReembolso.aspx">Reembolso / Servicio</a></li>
             <li><a href="aspRequiRev.aspx">Para Revisión</a></li>
             <li><a href="aspRequiNoAut.aspx">No Autorizadas</a></li>
             <li><a href="aspRequiFinalizada.aspx">Finalizadas</a></li>
             <li><a href="aspTodasRequis.aspx">Todas</a></li>
             <hr />
-            <%--<li>Orden de Pago</li>
+            <li>Orden de Pago</li>
             <li>&nbsp;</li>
-            <li><a href="aspOrdenDePago.aspx">Subir OP</a></li>--%>
+            <li><a href="aspOrdenPago.aspx">Subir OP</a></li>
+            <li>Administración</li>
+            <li>&nbsp;</li>
+            <li><a href="aspABCProveedor.aspx">Proveedores</a></li>
+            <li><a href="aspEditarContra.aspx">Contraseña</a></li>
         </ul>
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

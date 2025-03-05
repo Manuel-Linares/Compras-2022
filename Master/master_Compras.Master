@@ -33,7 +33,7 @@
         </table>
         <ul class="sidenav">
             <hr />
-            <li><a href="aspInicioCompras.aspx?msg=0">Inicio</a></li>
+            <li><a href="aspIndex.aspx?msg=0">Inicio</a></li>
             <hr />
             <%--<li>Requisición</li>
             <li>&nbsp;</li>
@@ -50,18 +50,22 @@
             <li><a href="aspCompras.aspx">Compras</a></li>
             <li><a href="aspRequiReembolso.aspx">Requis en Reembolso</a></li>
             <li><a href="aspActualizarPartida.aspx?msg=0">Actualizar Partida</a></li>
-            <li><a href="aspPartidasPenCom.aspx?msg=0">Partidas Pendientes</a></li>
-            <li><a href="aspPartidasFinalCom.aspx">Finalizadas</a></li>
-            <li><a href="aspPartidasUrgentesCom.aspx">Urgentes</a></li>
+            <li><a href="aspPartidasPendientes.aspx?msg=0">Partidas Pendientes</a></li>
+            <li><a href="aspPartidasFinalizadas.aspx">Finalizadas</a></li>
+            <li><a href="aspPartidasUrgentes.aspx">Urgentes</a></li>
             <hr />
             <li>Órdenes de Compra</li>
             <li>&nbsp;</li>
-            <li><a href="aspODCNueva.aspx">Nueva</a></li>
-            <li><a href="aspODCRevisionCom.aspx">ODC Revisión</a></li>
-            <li><a href="aspODCAutorizadasCom.aspx">ODC Autorizadas</a></li>
-            <li><a href="aspODCExcentoIVACom.aspx">ODC Excento IVA</a></li>
-            <li><a href="aspODCImpuestosCom.aspx">ODC Impuestos</a></li>
+            <li><a href="aspODCompra.aspx">Nueva</a></li>
+            <li><a href="aspODCRevision.aspx">ODC Revisión</a></li>
+            <li><a href="aspODCAutorizadas.aspx">ODC Autorizadas</a></li>
+            <li><a href="aspODCExcentoIVA.aspx">ODC Excento IVA</a></li>
+            <li><a href="aspODCImpuestos.aspx">ODC Impuestos</a></li>
             <hr />
+            <li>Administración</li>
+            <li>&nbsp;</li>
+            <li><a href="aspABCProveedor.aspx">Proveedores</a></li>
+            <%--<li><a href="aspEditarContra.aspx">Contraseña</a></li>--%>
         </ul>
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

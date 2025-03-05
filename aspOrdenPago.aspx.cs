@@ -27,6 +27,11 @@ namespace wsCompras_Hgo
             stamper.Close();
         }
 
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

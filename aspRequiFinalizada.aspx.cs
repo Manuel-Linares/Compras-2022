@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -21,34 +22,122 @@ namespace wsCompras_Hgo
             }
         }
 
-        void requisiciones()
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
+
+        private DataTable BindGridView()
         {
             ds = new DataSet();
             ds = obj.listarRequisFinalizadas(Application["cnn"].ToString(), int.Parse(Session["idUsuario"].ToString()));
-            if (ds.Tables.Count > 0)
+            return ds.Tables[0];
+        }
+
+        public void cargaValores(string query, Label label)
+        {
+            MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
+            try
             {
-                grdRequi.DataSource = ds;
-                grdRequi.DataMember = "FINALIZADAS";
-                grdRequi.DataBind();
-                foreach (GridViewRow gr in grdRequi.Rows)
+                _conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, _conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
                 {
-                    HyperLink hp = new HyperLink();
-                    hp.Text = gr.Cells[0].Text;
-                    hp.NavigateUrl = "https://controlsit.mx/comprasv2/formatorequi/requiformato.php?folio=" + hp.Text;
-                    hp.Target = "_blank";
-                    gr.Cells[0].Controls.Add(hp);
+                    label.Text = "Requisiciones Finalizadas: " + rdr[0].ToString();
                 }
+
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD');", true);
+            }
+
+            _conn.Close();
+        }
+
+        void requisiciones()
+        {
+            int cont = 0;
+
+            lblRequis.Visible = false;
+            grdRequi.DataSource = BindGridView();
+            grdRequi.DataMember = "FINALIZADAS";
+            grdRequi.DataBind();
+
+            foreach (GridViewRow gr in grdRequi.Rows)
+            {
+                cont++;
+            }
+
+            if (cont > 0)
+            {
+                lblRequis.Visible = true;
+                cargaValores("select count(*) as Total from `FINALIZADAS` where userid = " + Session["idUsuario"].ToString() + " ORDER BY FOLIO DESC;", lblRequis);
             }
             else
             {
-                lblRequis.Text = "Todavia no se ha realizado ninguna requisición";
+                lblRequis.Visible = true;
+                lblRequis.Text = "No se han finalizado requisiciones";
             }
+        }
+
+        protected void grdRequi_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            string sortingDirection = string.Empty;
+            if (direction == SortDirection.Ascending)
+            {
+                direction = SortDirection.Descending;
+                grdRequi.HeaderStyle.CssClass = "descendingCssClass";
+                sortingDirection = "Desc";
+            }
+            else
+            {
+                direction = SortDirection.Ascending;
+                grdRequi.HeaderStyle.CssClass = "ascendingCssClass";
+                sortingDirection = "Asc";
+            }
+
+            DataView sortedView = new DataView(BindGridView());
+            sortedView.Sort = e.SortExpression + " " + sortingDirection;
+            Session["SortedView"] = sortedView;
+            grdRequi.DataSource = sortedView;
+            grdRequi.DataBind();
         }
 
         protected void grdRequi_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdRequi.PageIndex = e.NewPageIndex;
-            requisiciones();
+            if (Session["SortedView"] != null)
+            {
+                grdRequi.DataSource = Session["SortedView"];
+                grdRequi.DataBind();
+            }
+            else
+            {
+                grdRequi.DataSource = BindGridView();
+                grdRequi.DataBind();
+            }
+        }
+
+        public SortDirection direction
+        {
+            get
+            {
+                if (ViewState["directionState"] == null)
+                {
+                    ViewState["directionState"] = SortDirection.Ascending;
+                }
+
+                return (SortDirection)ViewState["directionState"];
+            }
+
+            set
+            {
+                ViewState["directionState"] = value;
+            }
         }
     }
 }

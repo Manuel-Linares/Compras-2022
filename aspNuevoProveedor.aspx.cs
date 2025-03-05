@@ -14,6 +14,10 @@ namespace wsCompras_Hgo
         {
 
         }
+        void Page_PreInit(object sender, EventArgs e)
+        {
+            MasterPageFile = Session["master"].ToString();
+        }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -25,8 +29,7 @@ namespace wsCompras_Hgo
             {
                 MySqlConnection _conn = new MySqlConnection(Application["cnn"].ToString());
                 bool ban = false;
-                string auxTipo = "", auxCurp = "", auxDirec = "", auxContac = "", auxCorreo = "";
-                int auxTelef = 0;
+                string auxTipo = "", auxCurp = "", auxDirec = "", auxContac = "", auxCorreo = "", auxTelef = "" ;
 
                 if (txtTipo.Text.Equals(string.Empty))
                 {
@@ -66,11 +69,11 @@ namespace wsCompras_Hgo
 
                 if (txtTelefono.Text.Equals(string.Empty))
                 {
-                    auxTelef = 0;
+                    auxTelef = ".";
                 }
                 else
                 {
-                    auxTelef = int.Parse(txtTelefono.Text);
+                    auxTelef = txtTelefono.Text;
                 }
 
                 if (txtEmail.Text.Equals(string.Empty))
@@ -88,7 +91,7 @@ namespace wsCompras_Hgo
                     _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
                     string query = "CALL guardarProveedor('" + txtNombre.Text + "', '" + auxTipo + "', '" +
                                     txtRFC.Text + "', '" + auxCurp + "', '" + auxDirec + "', '" + auxContac +
-                                    "', " + auxTelef + ", '" + auxCorreo + "');";
+                                    "', '" + auxTelef + "', '" + auxCorreo + "');";
 
 
                     _conn.Open();
@@ -101,7 +104,7 @@ namespace wsCompras_Hgo
                         {
                             // Inserción exitosa
                             ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Registro guardado');", true);
-                            Response.Redirect("aspIndex.aspx");
+                            Response.Redirect("aspIndex.aspx?msg=1");
                         }
                         else
                         {

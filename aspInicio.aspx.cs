@@ -13,11 +13,9 @@ namespace wsCompras_Hgo
     {
         ClsPrincipal _obj = new ClsPrincipal();
         DataSet _dsInicio;// Data set local a la pagina
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Request.QueryString["ses"].Equals("1"))
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Sesion cerrada');", true);
@@ -34,8 +32,8 @@ namespace wsCompras_Hgo
             bool ban = false;
             string[] arreglo = new string[8];
             int i = 0;
-            try
-            {
+            /*try
+            {*/
                 /*_dsInicio = new DataSet();
                 _dsInicio = _obj.IniciarSesion(txtUsuario.Text, txtContra.Text, Application["cnn"].ToString());*/
                 string query = "CALL acceder('" + txtUsuario.Text + "', '" + txtContra.Text + "');";
@@ -69,13 +67,13 @@ namespace wsCompras_Hgo
                         arreglo[7] = rdr[7].ToString();
                     }
                 }
-
                 rdr.Close();
-            }
-            catch (Exception ex)
+            //}
+            /*catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error en BD'" + ex.ToString() + ");", true);
-            }
+            }*/
 
             _conn.Close();
 

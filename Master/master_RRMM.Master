@@ -33,17 +33,17 @@
         </table>
         <ul class="sidenav">
             <hr />
-            <li><a href="aspInicioRRMM.aspx?msg=0">Inicio</a></li>
+            <li><a href="aspIndex.aspx?msg=0">Inicio</a></li>
             <hr />
             <li>Requisición</li>
             <li>&nbsp;</li>
-            <li><a href="aspNuevaRequiRRMM.aspx">Nueva Requisición</a></li>
-            <li><a href="aspEnComprasRRMM.aspx">En Compras</a></li>
-            <li><a href="aspRequiReembolsoRRMM.aspx">Reembolso / Servicio</a></li>
-            <li><a href="aspRequiRevRRMM.aspx">Para Revisión</a></li>
-            <li><a href="aspRequiNoAutRRMM.aspx">No Autorizadas</a></li>
-            <li><a href="aspRequiFinalizadaRRMM.aspx">Finalizadas</a></li>
-            <li><a href="aspTodasRequisRRMM.aspx">Todas</a></li>
+            <li><a href="aspNuevaRequi.aspx">Nueva Requisición</a></li>
+            <li><a href="aspEnCompras.aspx">En Compras</a></li>
+            <li><a href="aspRequiReembolso.aspx">Reembolso / Servicio</a></li>
+            <li><a href="aspRequiRev.aspx">Para Revisión</a></li>
+            <li><a href="aspRequiNoAut.aspx">No Autorizadas</a></li>
+            <li><a href="aspRequiFinalizada.aspx">Finalizadas</a></li>
+            <li><a href="aspTodasRequis.aspx">Todas</a></li>
             <hr />
             <li>Para Autorizar</li>
             <li>&nbsp;</li>
@@ -54,18 +54,22 @@
             <li>&nbsp;</li>
             <li><a href="aspCompras.aspx">Compras</a></li>
             <li><a href="aspActualizarPartida.aspx?msg=0">Actualizar Partida</a></li>
-            <li><a href="aspPartidasPenRRMM.aspx">Partidas Pendientes</a></li>
-            <li><a href="aspPartidasFinalRRMM.aspx">Finalizadas</a></li>
-            <li><a href="aspPartidasUrgentesRRMM.aspx">Urgentes</a></li>
+            <li><a href="aspPartidasPendientes.aspx?msg=0">Partidas Pendientes</a></li>
+            <li><a href="aspPartidasFinalizadas.aspx">Finalizadas</a></li>
+            <li><a href="aspPartidasUrgentes.aspx">Urgentes</a></li>
             <hr />
             <li>Órdenes de Compra</li>
             <li>&nbsp;</li>
-            <li><a href="aspODCNueva.aspx">Nueva</a></li>
+            <li><a href="aspODCompra.aspx">Nueva</a></li>
             <li><a href="aspODCRevision.aspx">ODC Revisión</a></li>
             <li><a href="aspODCAutorizadas.aspx">ODC Autorizadas</a></li>
             <li><a href="aspODCExcentoIVA.aspx">ODC Excento IVA</a></li>
             <li><a href="aspODCImpuestos.aspx">ODC Impuestos</a></li>
             <hr />
+            <li>Administración</li>
+            <li>&nbsp;</li>
+            <li><a href="aspABCProveedor.aspx">Proveedores</a></li>
+            <%--<li><a href="aspEditarContra.aspx">Contraseña</a></li>--%>
 
         </ul>
         <div class="content">

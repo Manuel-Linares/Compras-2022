@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/acceso.Master" AutoEventWireup="true" CodeBehind="aspInicio.aspx.cs" Inherits="wsCompras_Hgo.Formulario_web1" %>
+﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="acceso.Master" AutoEventWireup="true" CodeBehind="aspInicio.aspx.cs" Inherits="wsCompras_Hgo.Formulario_web1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/acceso.css" rel="stylesheet" />
 </asp:Content>
